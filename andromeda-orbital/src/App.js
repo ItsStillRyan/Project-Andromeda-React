@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 //importing pages
 import NavbarMain from './commons/navbar'
 import FooterMain from './commons/footer'
+import StoreFront from './pages/store/storeFront'
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
             <Router>
                 <NavbarMain />
                 <Switch>
+                    <Route exact path="/" component={StoreFront}/>
                 </Switch>
                 <FooterMain />
             </Router>

@@ -25,32 +25,32 @@ export default function FooterMain(props) {
                             <ul>
                                 <li className="list-unstyled">
                                     
-                                        <a href={pegasusURL +"/galaxies"}>Galaxies</a>
+                                        <p href={pegasusURL +"/galaxies"}>Galaxies</p>
                                
                                 </li>
                                 <li className="list-unstyled">
                                     <Link to="/starcluster">
-                                        <a>Star Clusters</a>
+                                        <p>Star Clusters</p>
                                     </Link>
                                 </li>
                                 <li className="list-unstyled">
                                     <Link to="/planetary">
-                                        <a>Planetary</a>
+                                        <p>Planetary</p>
                                     </Link>
                                 </li>
                                 <li className="list-unstyled">
                                     <Link to="/nebulae">
-                                        <a>Nebulae</a>
+                                        <p>Nebulae</p>
                                     </Link>
                                 </li>
                                 <li className="list-unstyled">
                                     <Link to="/spacecraft">
-                                        <a>Space Craft</a>
+                                        <p>Space Craft</p>
                                     </Link>
                                 </li>
                                 <li className="list-unstyled">
                                     <Link to="/others">
-                                        <a>Others</a>
+                                        <p>Others</p>
                                     </Link>
                                 </li>
                             </ul>
@@ -61,7 +61,7 @@ export default function FooterMain(props) {
                             <ul>
                                 <li className="list-unstyled">
                                     <Link to="/gettingstarted">
-                                        <a>Getting Started</a>
+                                        <p>Getting Started</p>
                                     </Link>
                                 </li>
                             </ul>
@@ -69,7 +69,7 @@ export default function FooterMain(props) {
                             <ul>
                                 <li className="list-unstyled">
                                     <Link to="/uploads">
-                                        <a>Upload a picture</a>
+                                        <p>Upload p picture</p>
                                     </Link>
                                 </li>
                             </ul>
@@ -78,7 +78,7 @@ export default function FooterMain(props) {
                 </MDBContainer>
                 <div className="footer-copyright text-center py-3">
                     <MDBContainer fluid>
-                        &copy; {new Date().getFullYear()} Copyright: <a href="#">RyanT</a>
+                        &copy; {new Date().getFullYear()} Copyright: <p>RyanT</p>
                     </MDBContainer>
                 </div>
             </MDBFooter>

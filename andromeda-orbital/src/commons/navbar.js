@@ -1,10 +1,7 @@
 import React from "react";
-import axios from "axios";
-import { Link } from 'react-router-dom';
 //bootstraps
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import NavDropdown from 'react-bootstrap/NavDropdown'
 //import images
 import logo from '../images/logo-small.png'
 //css
@@ -23,7 +20,7 @@ export default class NavbarMain extends React.Component {
             <React.Fragment>
                 <Navbar expand="lg" bg="dark" varient="dark">
                     <Navbar.Brand>
-                    <a href="https://3000-tomato-unicorn-cygml9j4.ws-us03.gitpod.io/">
+                    <a href={pegasusURL}>
                             <img
                                 src={logo}
                                 width="60"
@@ -37,7 +34,7 @@ export default class NavbarMain extends React.Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="https://3000-tomato-unicorn-cygml9j4.ws-us03.gitpod.io/" >
+                            <Nav.Link href={pegasusURL} >
                                     <p className="navLink mr-5">
                                             Back into the Index
                                     </p>
