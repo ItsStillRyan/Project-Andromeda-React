@@ -24,28 +24,22 @@ export default class MainListing extends React.Component {
         let accum = []
         for (let s of this.state.products) {
             accum.push(
-                <div className="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <div className="card rounded shadow-sm border-0">
-                        <div className="card-body p-4">
-
+                <div className="col-lg-3 col-md-6 mb-4 mb-lg-0 cardCol">
+                    <div className="card rounded shadow-sm border-4 cardSize2">
+                        <div className="card-body cardSize">
                             <img src={s.image_url} alt="" className="img-fluid d-block mx-auto mb-3"
-                                style={{ height: 200 + 'px' }} />
+                                className="product-img" />
 
                             <h5> <a href="/" className="text-dark">{s.name}</a></h5>
 
-                            <p className="small text-muted font-italic">{s.price}</p>
-
+                            <p className="small text-muted font-italic">SGD ${s.price}</p>
                         </div>
                     </div>
                 </div>
-
             )
         }
         return accum
     }
-
-
-
 
     render() {
         return (
