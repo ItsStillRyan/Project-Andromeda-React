@@ -22,6 +22,7 @@
 .show-col{
     border: 2px solid orange;
 }
+
 /* navbar css in navbar.js */
 .navLink{
     color: white;
@@ -65,7 +66,8 @@
 }
 .cardSize2{
     width: 250px;
-    height: 350px;
+    height: 400px;
+    margin: 30px;
 }
 .cardCol{
     margin: 20px;
@@ -74,15 +76,11 @@
 
 /* Aside */
 .top-section{
-    margin-bottom: 20%;
+
 }
-.logo-section{
-    width: 27%;
-    height: 20%;
-    padding: 10px;
-    /* border: 2px solid orange; */
-    float: left;
+.bottom-section{
 }
+
 .logo-img{
     width: 300px;
     height: 300px;
@@ -92,23 +90,19 @@
     font-family: Conthrax;
     color: white;
     font-size: 3em;
+    padding-top: 2em;
 }
-
-
 .filter-section{
     width: 20%;
     padding-bottom: 100%;
-    float: left;
     border: 2px solid black;
     color:white;
     font-family: Conthrax;
     font-size: 1.5em;
     margin: auto;
+
 }
-.product-section{
-    border:1px solid black;
-    float: left;
-}
+
 
 /* LOGIN PAGE */
 .fulllogin-section{

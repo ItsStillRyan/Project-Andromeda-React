@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import config from "../../src/config";
+import { Row, Col, Container, Card, CardDeck } from 'react-bootstrap'
 
 const BASE_URL = config.BASE_URL
 
@@ -24,18 +25,17 @@ export default class MainListing extends React.Component {
         let accum = []
         for (let s of this.state.products) {
             accum.push(
-                <div className="col-lg-3 col-md-6 mb-4 mb-lg-0 cardCol">
-                    <div className="card rounded shadow-sm border-4 cardSize2">
-                        <div className="card-body cardSize">
-                            <img src={s.image_url} alt="" className="img-fluid d-block mx-auto mb-3"
-                                className="product-img" />
-
-                            <h5> <a href="/" className="text-dark">{s.name}</a></h5>
-
-                            <p className="small text-muted font-italic">SGD ${s.price}</p>
-                        </div>
-                    </div>
-                </div>
+                <Col>
+                    <Card className="cardSize2">
+                        <Card.Img variant="top" src={s.image_url} />
+                        <Card.Body>
+                            <Card.Title>{s.name}</Card.Title>
+                        </Card.Body>
+                        <Card.Footer>
+                            <small className="text-muted">SGD ${s.price}</small>
+                        </Card.Footer>
+                    </Card>
+                </Col>
             )
         }
         return accum
@@ -44,11 +44,11 @@ export default class MainListing extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="container py-5">
-                    <div className="row pb-5 mb-4">
+                <Row>
+                    <CardDeck>
                         {this.renderProducts()}
-                    </div>
-                </div>
+                    </CardDeck>
+                </Row>
             </React.Fragment >
         )
     }
