@@ -20,7 +20,7 @@ function App() {
                 <div className="divContain">
                     <Switch>
                         <Route exact path="/" component={StoreFront} />
-                        <Route exact path="/:id" component={IndivItem}/>
+                        <Route exact path="/test" component={IndivItem}/>
                         <Route exact path="/login" component={Login}/>
                         <Route exact path="/register" component={Register}/>
                         <Route exact path="/profile" component={Profile}/>

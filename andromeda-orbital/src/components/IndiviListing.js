@@ -29,9 +29,9 @@ export default class IndivListing extends React.Component {
 
 
     async componentDidMount() {
-        const response = await axios.get(BASE_URL + "/api/telescope/" + this.props.match.params.id + "/detailed")
-        console.log(this.props.match.params.id)
-        console.log(response.data)
+        // const response = await axios.get(BASE_URL + "/api/telescope/" + this.props.match.params.id + "/detailed")
+        // console.log(this.props.match.params.id)
+        // console.log(response.data)
         // this.setState({
         //     products: response.data,
         //     name: response.data.telescope,
