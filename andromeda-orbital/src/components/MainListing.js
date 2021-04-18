@@ -13,7 +13,6 @@ export default class MainListing extends React.Component {
 
     async componentDidMount() {
         const response = await axios.get(BASE_URL + "/api/telescope")
-        console.log(response.data)
         this.setState({
             products: response.data
         })
@@ -26,7 +25,7 @@ export default class MainListing extends React.Component {
         for (let s of this.state.products) {
             accum.push(
                 <Col>
-                    <Card className="cardSize2">
+                    <Card className="cardSize">
                         <Card.Img variant="top" src={s.image_url} />
                         <Card.Body>
                             <Card.Title>{s.name}</Card.Title>

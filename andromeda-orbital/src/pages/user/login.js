@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Button, Row, Col, Container } from 'react-bootstrap'
-
+import { Link } from 'react-router-dom'
 //images
 import logo from "../../images/logo.png"
 
@@ -13,7 +13,8 @@ export default class Login extends React.Component {
                         <Col className="show-col">
                             <div className="logo-signature">
                                 <img src={logo} className="login-logo-img" />
-                                <p>Welcome to Andromeda Orbital Station.<br></br> Logging in...</p>
+                                <p>Welcome to The Andromeda Orbital Station.</p>
+                                <p>Logging in</p>
                             </div>
 
                         </Col>
@@ -34,13 +35,11 @@ export default class Login extends React.Component {
                                 </Form>
                             </div>
                             <div className="registerHere-section">
-                                <p>Don't have an account? Register Here!</p>
+                                <p>Don't have an account? <Link to="/register">Register Here!</Link></p>
                             </div>
                         </Col>
                     </Row>
                 </Container>
-
-
             </React.Fragment>
         )
     }

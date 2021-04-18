@@ -5,7 +5,11 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import NavbarMain from './commons/navbar'
 import FooterMain from './commons/footer'
 import StoreFront from './pages/store/storeFront'
-import LoginFront from './pages/user/login'
+import IndivItem from './pages/store/individual-item'
+import Login from './pages/user/login'
+import Register from './pages/user/register'
+import Profile from './pages/user/profile'
+import Cart from './pages/user/cart'
 
 function App() {
     return (
@@ -16,7 +20,12 @@ function App() {
                 <div className="divContain">
                     <Switch>
                         <Route exact path="/" component={StoreFront} />
-                        <Route exact path="/login" component={LoginFront}/>
+                        <Route exact path="/:id" component={IndivItem}/>
+                        <Route exact path="/login" component={Login}/>
+                        <Route exact path="/register" component={Register}/>
+                        <Route exact path="/profile" component={Profile}/>
+                        <Route exact path="/cart" component={Cart}/>
+                        
                     </Switch>
                 </div>
             </div >

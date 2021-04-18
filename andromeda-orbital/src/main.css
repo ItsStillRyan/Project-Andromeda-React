@@ -1,3 +1,4 @@
+
 @font-face{
     font-family: 'Conthrax';
     src: local('Conthrax'), url(./fonts/conthrax-sb.ttf);
@@ -19,8 +20,16 @@
 }
 /* EXTRAS */
 
-.show-col{
+/* .show-col{
     border: 2px solid orange;
+} */
+
+.h-divider{
+    margin-top:30px;
+    margin-bottom:30px;
+    height:1px;
+    width:100%;
+    border-top:3px solid white;
 }
 
 /* navbar css in navbar.js */
@@ -61,10 +70,8 @@
 .product-img{
     height: 200px;
 }
+
 .cardSize{
-    width: 250px;
-}
-.cardSize2{
     width: 250px;
     height: 400px;
     margin: 30px;
@@ -79,6 +86,7 @@
 
 }
 .bottom-section{
+    width: 2100px;
 }
 
 .logo-img{
@@ -136,3 +144,5 @@
     font-family: Conthrax;
     font-size: 1em;
 }
+
+/*  */
