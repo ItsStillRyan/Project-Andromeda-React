@@ -9,9 +9,11 @@ export default class IndivItem extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Container>
-                    <IndivListing />
-                </Container>
+                <div className="backListingContain">
+                    <div className="listingContain">
+                        <IndivListing />
+                    </div>
+                </div>
             </React.Fragment>
         )
     }

@@ -26,7 +26,8 @@ export default class StoreFront extends React.Component {
                 </Row>
 
                 <Row className="bottom-section justify-content-md-end">
-                    <Col className="show-col">
+                    <Col className="filter-section">
+                        
                     </Col>
                     <Col lg="10" className="show-col">
                         <MainListing />
