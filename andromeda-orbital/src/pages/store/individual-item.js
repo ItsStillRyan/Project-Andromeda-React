@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel, Row, Col, Container } from 'react-bootstrap'
+import { Row, Col, Container } from 'react-bootstrap'
 import IndivListing from "../../components/IndiviListing";
 
 //images
@@ -9,7 +9,9 @@ export default class IndivItem extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <IndivListing />
+                <Container>
+                    <IndivListing />
+                </Container>
             </React.Fragment>
         )
     }

@@ -41,7 +41,19 @@ export default function LoginComp() {
                     <Button 
                     variant="primary" 
                     type="submit"
-                    onClick={ async () =>{
+                    // href={
+                    //     () => {
+                    //         const profileURL = "/profile"
+                    //         const errorURL = "login"
+                    //         if (){
+                    //             return profileURL
+                    //         }else{
+                    //             return errorURL
+                    //         }
+                    //     }
+                    // }
+                    onClick={ 
+                        async () => {
                         const response = await axios.post(BASE_URL + "/api/users/login", {
                             'username': username,
                             'password': password

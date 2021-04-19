@@ -20,9 +20,7 @@ export default class Login extends React.Component {
                                 <p>Logging in</p>
                             </div>
                         </Col>
-
                         <LoginComp />
-
                     </Row>
                 </Container>
             </React.Fragment >
