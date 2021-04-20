@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Form, Button, Row, Col, Container } from 'react-bootstrap'
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import config from "../../config";
 
 const BASE_URL = config.BASE_URL
@@ -31,7 +31,6 @@ export default function Profile() {
                 <div className="storeSection">
                     <p className="profileTitles">Store</p>
                 </div>
-
                 <div className="authorizationSection">
                     <p className="profileTitles">Authorization</p>
                     <Row>
@@ -95,6 +94,16 @@ export default function Profile() {
                         </Col>
                     </Row>
                 </div>
+                <Link to="/">
+                <Button 
+                variant="outline-danger"
+                onClick={
+                    () => {
+                        localStorage.clear()
+                    }
+                }
+                >Log Out</Button>
+                </Link>
             </div>
         </React.Fragment>
     )

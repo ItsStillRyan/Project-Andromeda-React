@@ -13,8 +13,7 @@ const BASE_URL = config.BASE_URL
 export default function LoginComp() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const id = localStorage.getItem('id')
-    const loginURL = "/profile/" + id
+    
     let clickLogin = async () => {
         const response = await axios.post(BASE_URL + "/api/users/login", {
             'username': username,
@@ -59,7 +58,6 @@ export default function LoginComp() {
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label className="login-label">Password</Form.Label>
                         <Form.Control
-
                             type="password"
                             placeholder="Password"
                             name="password"
@@ -70,7 +68,7 @@ export default function LoginComp() {
                             Please enter a valid Password.
                         </Form.Control.Feedback>
                     </Form.Group>
-                    <Link to={loginURL}>
+                    <Link to="/">
                         <Button
                             variant="outline-warning"
                             onClick={clickLogin}

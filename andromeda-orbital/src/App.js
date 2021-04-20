@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 //importing pages
@@ -12,7 +12,8 @@ import Profile from './pages/user/profile'
 import Cart from './pages/user/cart'
 
 function App() {
-    
+
+
     return (
         <Router>
             <NavbarMain />

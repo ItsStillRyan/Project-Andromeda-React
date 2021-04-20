@@ -18,9 +18,9 @@
     margin: auto;
 }
 .backgroundBody{
-        background-color: rgba(0, 0, 0, 0.4);
-
+    background-color: rgba(0, 0, 0, 0.4);
 }
+
 /* EXTRAS */
 
 /* .show-col{
@@ -104,7 +104,6 @@
 
 }
 .bottom-section{
-    width: 2100px;
 }
 
 .logo-img{
@@ -120,8 +119,10 @@
 }
 .filter-section{
     border-right: 2px solid white;
-    height: 1000px;
+    height: 100%;
 
+}
+.listing-section{
 }
 
 

@@ -26,10 +26,10 @@ export default class StoreFront extends React.Component {
                 </Row>
 
                 <Row className="bottom-section justify-content-md-end">
-                    <Col className="filter-section">
+                    <Col xs="3"className="filter-section">
                         
                     </Col>
-                    <Col lg="10" className="show-col">
+                    <Col xs="9" className="listing-section">
                         <MainListing />
                     </Col>
                    
