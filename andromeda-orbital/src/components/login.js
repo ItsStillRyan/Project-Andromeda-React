@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import config from "../../src/config";
-import { Form, Button, Row, Col, Container } from 'react-bootstrap'
+import { Form, Button, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 
@@ -9,9 +9,33 @@ import { Link } from 'react-router-dom'
 const BASE_URL = config.BASE_URL
 
 
+
 export default function LoginComp() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const id = localStorage.getItem('id')
+    const loginURL = "/profile/" + id
+    let clickLogin = async () => {
+        const response = await axios.post(BASE_URL + "/api/users/login", {
+            'username': username,
+            'password': password
+        })
+        let idTest = localStorage.getItem('id', response.data.id)
+        if (idTest) {
+            localStorage.removeItem("accessToken")
+            localStorage.removeItem("refreshToken")
+            localStorage.removeItem("id")
+            localStorage.setItem('accessToken', response.data.accessToken);
+            localStorage.setItem('refreshToken', response.data.refreshToken);
+            localStorage.setItem('id', response.data.id)
+        } else {
+            localStorage.setItem('accessToken', response.data.accessToken);
+            localStorage.setItem('refreshToken', response.data.refreshToken);
+            localStorage.setItem('id', response.data.id)
+        }
+        console.log(response.data)
+    }
+
 
     return (
         <Col className="show-col">
@@ -20,48 +44,38 @@ export default function LoginComp() {
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label className="login-label">Username</Form.Label>
                         <Form.Control
+
                             type="Username"
                             placeholder="Enter Username"
                             name="username"
                             value={username}
                             onChange={e => setUsername(e.target.value)}
                         />
+                        <Form.Control.Feedback type="invalid">
+                            Please enter a valid Username.
+                        </Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label className="login-label">Password</Form.Label>
                         <Form.Control
+
                             type="password"
                             placeholder="Password"
                             name="password"
                             value={password}
                             onChange={e => setPassword(e.target.value)}
                         />
+                        <Form.Control.Feedback type="invalid">
+                            Please enter a valid Password.
+                        </Form.Control.Feedback>
                     </Form.Group>
-                    <Button 
-                    variant="primary" 
-                    type="submit"
-                    // href={
-                    //     () => {
-                    //         const profileURL = "/profile"
-                    //         const errorURL = "login"
-                    //         if (){
-                    //             return profileURL
-                    //         }else{
-                    //             return errorURL
-                    //         }
-                    //     }
-                    // }
-                    onClick={ 
-                        async () => {
-                        const response = await axios.post(BASE_URL + "/api/users/login", {
-                            'username': username,
-                            'password': password
-                        })
-                        localStorage.setItem('accessToken', response.data.accessToken);
-                        localStorage.setItem('refreshToken', response.data.refreshToken);
-                    }}
-                    >Log in</Button>
+                    <Link to={loginURL}>
+                        <Button
+                            variant="outline-warning"
+                            onClick={clickLogin}
+                        >Log in</Button>
+                    </Link>
                 </Form>
             </div>
             <div className="registerHere-section">

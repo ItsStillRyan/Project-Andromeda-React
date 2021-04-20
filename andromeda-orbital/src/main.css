@@ -35,8 +35,8 @@
     border-top:3px solid white;
 }
 .h-divider2{
-    margin-top:50px;
-    margin-bottom:50px;
+    margin-top:30px;
+    margin-bottom:30px;
     height:1px;
     width:100%;
     border-top:2px solid white;
@@ -172,8 +172,8 @@
     height: 500px;
 }
 .indivImgCol img{
-    text-align: center;
-    margin: 15px;
+    margin-top: 15px;
+    float: left;
 }
 .indivQuickDetailsCol{
     border-left: 2px solid orange;
@@ -246,8 +246,20 @@
     margin-bottom: 30px;
     margin-left: 15px;
     margin-right: 15px;
+    line-height: 1.7em;
 }
 .indivTablelink{
     font-size: 0.7em;
     margin-right: 15px;
+}
+
+/* PROFILE */
+.profileSection{
+    color:white;
+    padding: 30px;
+}
+.profileTitles{
+    color: white;
+    font-family: Conthrax;
+    font-size: 1.5em;
 }

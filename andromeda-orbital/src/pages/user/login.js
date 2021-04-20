@@ -1,6 +1,5 @@
 import React from "react";
-import { Form, Button, Row, Col, Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import {Row, Col, Container } from 'react-bootstrap'
 
 //import componenets
 import LoginComp from '../../components/login'
@@ -15,7 +14,7 @@ export default class Login extends React.Component {
                     <Row>
                         <Col className="show-col">
                             <div className="logo-signature">
-                                <img src={logo} className="login-logo-img" />
+                                <img src={logo} className="login-logo-img" alt="androLogo"/>
                                 <p>Welcome to The Andromeda Orbital Station.</p>
                                 <p>Logging in</p>
                             </div>

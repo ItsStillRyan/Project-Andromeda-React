@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import config from "../../src/config";
-import { Row, Col, Container, Card, CardDeck, Button, Table } from 'react-bootstrap'
+import { Row, Col, Button, Table } from 'react-bootstrap'
 import { withRouter } from "react-router-dom";
 
 const BASE_URL = config.BASE_URL
@@ -26,13 +26,8 @@ class IndivListing extends React.Component {
 
     async componentDidMount() {
         const { match: { params } } = this.props;
-
-        const response = await axios.get(BASE_URL + "/api/telescope/" + this.props.match.params.id + "/detailed")
-
         axios.get(`${BASE_URL}/api/telescope/${params.id}/detailed`)
             .then(({ data: products }) => {
-                console.log('product', products);
-
                 this.setState({
                     products: products,
                     name: products.name,
@@ -62,10 +57,11 @@ class IndivListing extends React.Component {
             <React.Fragment>
                 <Row>
                     {/* image col */}
-                    <Col xs={3}>
+                    <Col xs={4}>
                         <div className="indivImgCol">
                             <img
                                 src={this.state.image_url}
+                                alt={this.state.name}
                             />
                         </div>
                     </Col>
@@ -80,7 +76,7 @@ class IndivListing extends React.Component {
                         </div>
                     </Col>
                     {/* add to cart/price col */}
-                    <Col>
+                    <Col xs={3}>
                         <div className="indivAddCartCol">
                             <div>
                                 <p id="indivPrice">SGD${this.state.price}</p>

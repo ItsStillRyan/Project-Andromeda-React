@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import config from "../../src/config";
-import { Row, Col, Container, Card, CardDeck } from 'react-bootstrap'
+import { Row, Col, Card, CardDeck } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const BASE_URL = config.BASE_URL

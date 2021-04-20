@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel, Row, Col, Container } from 'react-bootstrap'
+import {Row, Col} from 'react-bootstrap'
 import MainListing from "../../components/MainListing";
 
 //images
@@ -14,7 +14,7 @@ export default class StoreFront extends React.Component {
 
                     <Col xs={3} className="show-col" >
                         <div className="logo-section">
-                            <img src={logo} className="logo-img" />
+                            <img src={logo} className="logo-img" alt="androLogo"/>
                         </div>
                     </Col>
 
