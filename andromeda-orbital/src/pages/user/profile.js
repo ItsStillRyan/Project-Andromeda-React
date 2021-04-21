@@ -24,10 +24,15 @@ export default function Profile() {
         profileFetch()
     }, [])
 
+
+    const logoutClick = () => {
+        localStorage.clear()
+    }
+
     return (
         <React.Fragment>
             <div className="profileSection">
-                
+
                 <div className="storeSection">
                     <p className="profileTitles">Store</p>
                 </div>
@@ -95,14 +100,10 @@ export default function Profile() {
                     </Row>
                 </div>
                 <Link to="/">
-                <Button 
-                variant="outline-danger"
-                onClick={
-                    () => {
-                        localStorage.clear()
-                    }
-                }
-                >Log Out</Button>
+                    <Button
+                        variant="outline-danger"
+                        onClick={logoutClick}
+                    >Log Out</Button>
                 </Link>
             </div>
         </React.Fragment>

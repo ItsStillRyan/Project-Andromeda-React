@@ -7,6 +7,12 @@ import config from "../../config";
 const BASE_URL = config.BASE_URL
 
 
-export default function Orders() {
-    
+export default function ConfirmOrders() {
+    const [shipping, setshipping] = useState("")
+
+    return(
+        <React.Fragment>
+            
+        </React.Fragment>
+    )
 }

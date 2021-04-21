@@ -37,7 +37,6 @@ export default function Register() {
         })
     }
 
-
     const handleSubmit = (event) => {
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
@@ -47,10 +46,6 @@ export default function Register() {
         }
         setValidated(true);
     };
-
-
-
-
 
     return (
         <React.Fragment>

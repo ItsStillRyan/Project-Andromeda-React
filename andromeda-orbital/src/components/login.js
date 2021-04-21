@@ -33,6 +33,7 @@ export default function LoginComp() {
             localStorage.setItem('id', response.data.id)
         }
         console.log(response.data)
+        setTimeout(window.location.reload(), 3000)
     }
 
 

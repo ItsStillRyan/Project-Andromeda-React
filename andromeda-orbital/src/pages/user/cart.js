@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import { Form, Button, Row, Col, Container } from 'react-bootstrap'
 import config from "../../config";
+import { Link } from 'react-router-dom'
+
 
 const BASE_URL = config.BASE_URL
 const userid = localStorage.getItem("id")
@@ -25,20 +27,20 @@ export default class Cart extends React.Component {
 
         let accum = []
         for (let c of this.state.cart) {
-            accum.push(c.telescope.price)
+            accum.push(c.telescope.price * c.quantity)
         }
         return accum.reduce(function (a, b) { return a + b }, 0)
     }
 
     currentQuantity = () => {
         let accum = []
-        for (let q of this.stat.cart){
+        for (let q of this.stat.cart) {
             accum.push(q.quantity)
         }
         return accum
     }
 
-    removeItem = async(telescopeid) => {
+    removeItem = async (telescopeid) => {
         const remove = await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/remove")
     }
 
@@ -46,8 +48,9 @@ export default class Cart extends React.Component {
         const update = await axios.post(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/quantity" + "/update", {
             "newQuantity": this.state.quantity
         })
-        console.log(update)
+        setTimeout(window.location.reload(), 3000)
         return update
+        
     }
 
 
@@ -80,8 +83,8 @@ export default class Cart extends React.Component {
                             <Form.Group>
                                 <Form.Label>Quantity:</Form.Label>
                                 <Form.Control
-                                    placeholder="1"
-                                    value={c.quantity}
+                                    placeholder={c.quantity}
+                                    value={this.state.quantity}
                                     name="quantity"
                                     onChange={(e) => {
                                         this.setState({
@@ -91,9 +94,9 @@ export default class Cart extends React.Component {
                                 />
                             </Form.Group>
                             <Button
-                            variant="outline-warning"
-                            size="sm"
-                            onClick={() => {this.updateQuantity(c.telescope.id)}}
+                                variant="outline-warning"
+                                size="sm"
+                                onClick={() => {this.updateQuantity(c.telescope.id)}}
                             >
                                 Update
                             </Button>
@@ -119,7 +122,9 @@ export default class Cart extends React.Component {
                         </Col>
                         <Col xs={2} id="checkout-section">
                             <p>Total Price: <br /> SGD ${this.calculateTotalPrice()}</p>
-                            <Button variant="outline-success">Check out</Button>
+                            <Link to="/confirmOrders">
+                                <Button variant="outline-success">Check out</Button>
+                            </Link>
                         </Col>
                     </Row>
                 </div>

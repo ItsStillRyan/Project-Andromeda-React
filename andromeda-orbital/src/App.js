@@ -6,12 +6,13 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 //importing pages
 import NavbarMain from './commons/navbar'
 import FooterMain from './commons/footer'
-import StoreFront from './pages/store/storeFront'
+import StoreFront from './pages/store/store-front'
 import IndivItem from './pages/store/individual-item'
 import Login from './pages/user/login'
 import Register from './pages/user/register'
 import Profile from './pages/user/profile'
 import Cart from './pages/user/cart'
+import ConfirmOrders from './pages/store/confirm-orders'
 
 function App() {
 
@@ -26,6 +27,8 @@ function App() {
             localStorage.setItem("accessToken", response.data.accessToken);
         }, config.REFRESH_TOKEN_INTERVAL);
     });
+
+ 
 
 
 
@@ -42,6 +45,7 @@ function App() {
                             <Route exact path="/register" component={Register} />
                             <Route exact path="/profile/:id" component={Profile} />
                             <Route exact path="/cart" component={Cart} />
+                            <Route exact path="/confirmOrders" component={ConfirmOrders} />
                             {/* individual item */}
                             <Route exact path="/:id" component={IndivItem} />
                         </Switch>
