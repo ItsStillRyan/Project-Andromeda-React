@@ -5,7 +5,7 @@ import { Row, Col, Button, Table } from 'react-bootstrap'
 import { withRouter } from "react-router-dom";
 
 const BASE_URL = config.BASE_URL
-
+const userid = localStorage.getItem("id")
 class IndivListing extends React.Component {
     state = {
         products: [],
@@ -21,7 +21,8 @@ class IndivListing extends React.Component {
         fratioRange: "",
         category: "",
         brand: "",
-        image_url: ""
+        image_url: "",
+        id:""
     }
 
     async componentDidMount() {
@@ -42,14 +43,19 @@ class IndivListing extends React.Component {
                     fratioRange: products.fratioRange,
                     category: products.category.name,
                     brand: products.brand.name,
-                    image_url: products.image_url
+                    image_url: products.image_url,
+                    id: products.id
                 })
             });
     }
 
     calcShipping() {
         return Math.floor((Math.random() * 60) + 20);
+    }
 
+    async addToCart(telescopeid) {
+        const add = await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/add")
+        return add
     }
 
     render() {
@@ -94,7 +100,10 @@ class IndivListing extends React.Component {
                                     <p>Stock Left: {this.state.stock}</p>
                                 </div>
                                 <div>
-                                    <Button variant="outline-warning">Add to Cart</Button>
+                                    <Button
+                                        variant="outline-warning"
+                                        onClick={this.addToCart(this.state.id)}
+                                    >Add to Cart</Button>
                                 </div>
                             </div>
                         </div>

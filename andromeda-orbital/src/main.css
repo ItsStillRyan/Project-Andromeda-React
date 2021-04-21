@@ -264,3 +264,33 @@
     font-family: Conthrax;
     font-size: 1.5em;
 }
+
+/* CART */
+#cart-section-whole{
+    padding: 30px;
+    color: white;
+    font-family: Conthrax;
+}
+#cartTitle{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#checkout-section{
+    margin-left: 20px;
+    border-left: 2px solid orange;
+}
+#checkout-section Button{
+    margin-top: 50px;
+}
+.indivCart{
+    margin-bottom: 50px;
+}
+.cartImg img{
+    width: 150px;
+    height: 150px;
+}
+.cartPrice i {
+    font-size: 1.5em;
+}
