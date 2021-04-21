@@ -47,6 +47,7 @@ class IndivListing extends React.Component {
                     id: products.id
                 })
             });
+            
     }
 
     calcShipping() {
@@ -102,7 +103,7 @@ class IndivListing extends React.Component {
                                 <div>
                                     <Button
                                         variant="outline-warning"
-                                        onClick={this.addToCart(this.state.id)}
+                                        onClick={()=>{this.addToCart(this.state.id)}}
                                     >Add to Cart</Button>
                                 </div>
                             </div>

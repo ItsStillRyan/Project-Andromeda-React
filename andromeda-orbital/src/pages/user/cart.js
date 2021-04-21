@@ -16,7 +16,7 @@ export default class Cart extends React.Component {
     async componentDidMount() {
         const response = await axios.get(BASE_URL + "/api/cart/" + userid)
         this.setState({
-            cart: response.data
+            cart: response.data,
         })
         console.log(response.data)
     }
@@ -30,12 +30,27 @@ export default class Cart extends React.Component {
         return accum.reduce(function (a, b) { return a + b }, 0)
     }
 
-    async removeItem(telescopeid){
-        const remove = await axios.get(BASE_URL + "/api/cart/"+ userid + "/" + telescopeid + "/remove")
-        return remove
+    currentQuantity = () => {
+        let accum = []
+        for (let q of this.stat.cart){
+            accum.push(q.quantity)
+        }
+        return accum
     }
 
-    
+    removeItem = async(telescopeid) => {
+        const remove = await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/remove")
+    }
+
+    updateQuantity = async (telescopeid) => {
+        const update = await axios.post(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/quantity" + "/update", {
+            "newQuantity": this.state.quantity
+        })
+        console.log(update)
+        return update
+    }
+
+
 
     renderCart = () => {
         let accum = []
@@ -50,10 +65,10 @@ export default class Cart extends React.Component {
                     </Col>
                     <Col xs={2} className="cartPrice">
                         <p>SGD ${c.telescope.price}</p>
-                        <Button 
-                        variant="outline-warning" 
-                        size="sm"
-                        onClick={this.removeItem(c.telescope.id)}
+                        <Button
+                            variant="outline-warning"
+                            size="sm"
+                            onClick={() => { this.removeItem(c.telescope.id) }}
                         >
                             <i className="far fa-trash-alt"></i>
                         </Button>
@@ -64,8 +79,24 @@ export default class Cart extends React.Component {
                         <Form>
                             <Form.Group>
                                 <Form.Label>Quantity:</Form.Label>
-                                <Form.Control value="1" />
+                                <Form.Control
+                                    placeholder="1"
+                                    value={c.quantity}
+                                    name="quantity"
+                                    onChange={(e) => {
+                                        this.setState({
+                                            [e.target.name]: e.target.value
+                                        })
+                                    }}
+                                />
                             </Form.Group>
+                            <Button
+                            variant="outline-warning"
+                            size="sm"
+                            onClick={() => {this.updateQuantity(c.telescope.id)}}
+                            >
+                                Update
+                            </Button>
                         </Form>
 
                     </Col>

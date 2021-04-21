@@ -104,6 +104,7 @@
 
 }
 .bottom-section{
+    border-top: 2px solid orange;
 }
 
 .logo-img{
@@ -122,7 +123,22 @@
     height: 100%;
 
 }
-.listing-section{
+.filterTitle{
+    font-size: 1.3em;
+    text-decoration: underline;
+}
+.filter-section{
+    color:white;
+    font-family: Conthrax;
+}
+#userLevelFilter{
+    margin-top: 40px;
+}
+#brandFilter{
+    margin-top: 40px;
+}
+#imagingFilter{
+    margin-top: 40px;
 }
 
 

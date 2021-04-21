@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import axios from "axios";
+import config from "./config";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 //importing pages
@@ -12,6 +14,19 @@ import Profile from './pages/user/profile'
 import Cart from './pages/user/cart'
 
 function App() {
+
+    useEffect(() => {
+        setInterval(async () => {
+            const response = await axios.post(
+                config.BASE_URL + "/api/users/refresh",
+                {
+                    refreshToken: localStorage.getItem("refreshToken")
+                }
+            );
+            localStorage.setItem("accessToken", response.data.accessToken);
+        }, config.REFRESH_TOKEN_INTERVAL);
+    });
+
 
 
     return (
