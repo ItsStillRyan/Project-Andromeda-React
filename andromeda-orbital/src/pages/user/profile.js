@@ -25,8 +25,9 @@ export default function Profile() {
     }, [])
 
 
-    const logoutClick = () => {
+    const logoutClick = async () => {
         localStorage.clear()
+        const logout = await axios.get(BASE_URL + "/api/users/logout")
     }
 
     return (
@@ -99,12 +100,11 @@ export default function Profile() {
                         </Col>
                     </Row>
                 </div>
-                <Link to="/">
                     <Button
                         variant="outline-danger"
                         onClick={logoutClick}
+                        href="/"
                     >Log Out</Button>
-                </Link>
             </div>
         </React.Fragment>
     )
