@@ -14,13 +14,11 @@ export default class Cart extends React.Component {
         quantity: ""
     }
 
-
     async componentDidMount() {
         const response = await axios.get(BASE_URL + "/api/cart/" + userid)
         this.setState({
             cart: response.data,
         })
-        console.log(response.data)
     }
 
     calculateTotalPrice = () => {
@@ -42,6 +40,7 @@ export default class Cart extends React.Component {
 
     removeItem = async (telescopeid) => {
         const remove = await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/remove")
+        setTimeout(window.location.reload(), 3000)
     }
 
     updateQuantity = async (telescopeid) => {
@@ -52,8 +51,6 @@ export default class Cart extends React.Component {
         return update
         
     }
-
-
 
     renderCart = () => {
         let accum = []
@@ -109,8 +106,6 @@ export default class Cart extends React.Component {
         return accum
     }
 
-
-
     render() {
         return (
             <React.Fragment>
@@ -128,10 +123,6 @@ export default class Cart extends React.Component {
                         </Col>
                     </Row>
                 </div>
-
-
-
-
             </React.Fragment>
         )
     }

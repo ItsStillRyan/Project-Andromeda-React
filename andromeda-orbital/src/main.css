@@ -310,3 +310,10 @@
 .cartPrice i {
     font-size: 1.5em;
 }
+
+/* CONFIRM ORDER*/
+#confirmorder-section-whole{
+    padding: 30px;
+    color: white;
+    font-family: Conthrax;
+}
