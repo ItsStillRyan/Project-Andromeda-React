@@ -37,9 +37,11 @@ export default class StoreFront extends React.Component {
                         </div>
                         <div id="brandFilter">
                             <p className="filterTitle">Brand</p>
-                            <p>Orion</p>
-                            <p>Celestron</p>
-                            <p>Meade</p>
+                            <ul>
+                                <li>Orion</li>
+                                <li>Celestron</li>
+                                <li>Meade</li>
+                            </ul>
                         </div>
                         <div id="imagingFilter">
                             <p className="filterTitle">Best for Imaging</p>

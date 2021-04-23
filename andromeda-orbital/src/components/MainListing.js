@@ -28,16 +28,16 @@ export default class MainListing extends React.Component {
         for (let s of this.state.products) {
             accum.push(
                 <Col>
-                <Link to={`/`+ s.id}>
-                    <Card className="cardSize">
-                        <Card.Img variant="top" src={s.image_url} />
-                        <Card.Body>
-                            <Card.Title>{s.name}</Card.Title>
-                        </Card.Body>
-                        <Card.Footer>
-                            <small className="text-muted">SGD ${s.price}</small>
-                        </Card.Footer>
-                    </Card>
+                    <Link to={`/` + s.id}>
+                        <Card className="cardSize">
+                            <Card.Img variant="top" src={s.image_url} />
+                            <Card.Body>
+                                <Card.Title>{s.name}</Card.Title>
+                            </Card.Body>
+                            <Card.Footer>
+                                <small className="text-muted">SGD ${s.price}</small>
+                            </Card.Footer>
+                        </Card>
                     </Link>
                 </Col>
             )

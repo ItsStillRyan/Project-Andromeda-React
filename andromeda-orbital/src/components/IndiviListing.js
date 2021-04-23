@@ -22,32 +22,36 @@ class IndivListing extends React.Component {
         category: "",
         brand: "",
         image_url: "",
-        id:""
+        id: ""
     }
 
     async componentDidMount() {
-        const { match: { params } } = this.props;
-        axios.get(`${BASE_URL}/api/telescope/${params.id}/detailed`)
-            .then(({ data: products }) => {
-                this.setState({
-                    products: products,
-                    name: products.name,
-                    description: products.description,
-                    stock: products.stock,
-                    price: products.price,
-                    weight: products.weight,
-                    userLevel: products.userLevel,
-                    imagingType: products.imagingType,
-                    opticalDesign: products.opticalDesign,
-                    apertureRange: products.apertureRange,
-                    fratioRange: products.fratioRange,
-                    category: products.category.name,
-                    brand: products.brand.name,
-                    image_url: products.image_url,
-                    id: products.id
-                })
-            });
-            
+        const
+            {
+                match: { params }
+            } = this.props;
+
+        axios.get(`${BASE_URL}/api/telescope/${params.id}/detailed`).then(({
+            data: products }) => {
+            this.setState({
+                products: products,
+                name: products.name,
+                description: products.description,
+                stock: products.stock,
+                price: products.price,
+                weight: products.weight,
+                userLevel: products.userLevel,
+                imagingType: products.imagingType,
+                opticalDesign: products.opticalDesign,
+                apertureRange: products.apertureRange,
+                fratioRange: products.fratioRange,
+                category: products.category.name,
+                brand: products.brand.name,
+                image_url: products.image_url,
+                id: products.id
+            })
+        });
+
     }
 
     calcShipping() {
@@ -103,7 +107,7 @@ class IndivListing extends React.Component {
                                 <div>
                                     <Button
                                         variant="outline-warning"
-                                        onClick={()=>{this.addToCart(this.state.id)}}
+                                        onClick={() => { this.addToCart(this.state.id) }}
                                     >Add to Cart</Button>
                                 </div>
                             </div>

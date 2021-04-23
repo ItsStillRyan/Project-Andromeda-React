@@ -36,6 +36,9 @@ export default function Profile() {
 
                 <div className="storeSection">
                     <p className="profileTitles">Store</p>
+                    <Link to="/orders">
+                        <Button variant="outline-info">Orders</Button>
+                    </Link>
                 </div>
                 <div className="authorizationSection">
                     <p className="profileTitles">Authorization</p>
@@ -100,11 +103,11 @@ export default function Profile() {
                         </Col>
                     </Row>
                 </div>
-                    <Button
-                        variant="outline-danger"
-                        onClick={logoutClick}
-                        href="/"
-                    >Log Out</Button>
+                <Button
+                    variant="outline-danger"
+                    onClick={logoutClick}
+                    href="/"
+                >Log Out</Button>
             </div>
         </React.Fragment>
     )

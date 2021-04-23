@@ -13,6 +13,7 @@ import Register from './pages/user/register'
 import Profile from './pages/user/profile'
 import Cart from './pages/user/cart'
 import ConfirmOrders from './pages/store/confirm-orders'
+import Orders from './pages/user/order'
 import SuccessURL from './pages/stripe/success'
 import ErrorURL from './pages/stripe/error'
 
@@ -48,6 +49,7 @@ function App() {
                             <Route exact path="/profile/:id" component={Profile} />
                             <Route exact path="/cart" component={Cart} />
                             <Route exact path="/confirmOrders" component={ConfirmOrders} />
+                            <Route exact path="/orders" component={Orders} />
                             <Route exact path="/success" component={SuccessURL} />
                             <Route exact path="/error" component={ErrorURL} />
                             {/* individual item */}

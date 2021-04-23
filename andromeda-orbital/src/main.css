@@ -334,3 +334,32 @@
 #success-buttonCluster{
     margin-top: 10%;
 }
+
+/* ERROR URL */
+#error-section{
+    color: white;
+    font-family: Conthrax;
+    text-align: center;
+    padding: 10%;
+}
+#errorTitle{
+    font-size: 3em;
+}
+#successShipNum{
+    color: orange;
+}
+#success-buttonCluster{
+    margin-top: 10%;
+}
+
+/* ORDERS */
+#orderTable-section th{
+    color: white;
+}
+#orderTable-section td{
+    color: white;
+}
+#orderButtonCluster{
+    text-align: center;
+    padding: 5%;
+}
