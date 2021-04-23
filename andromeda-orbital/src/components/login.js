@@ -36,7 +36,7 @@ export default function LoginComp() {
         setTimeout(window.location.reload(), 3000)
     }
 
-
+    
     return (
         <Col className="show-col">
             <div className="loginForm-section">

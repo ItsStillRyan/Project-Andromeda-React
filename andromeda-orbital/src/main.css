@@ -121,15 +121,15 @@
 .filter-section{
     border-right: 2px solid white;
     height: 100%;
-
+    color:white;
+    font-family: Conthrax;
 }
 .filterTitle{
     font-size: 1.3em;
     text-decoration: underline;
 }
-.filter-section{
-    color:white;
-    font-family: Conthrax;
+.filter-section li{
+    margin-top: 20px;
 }
 #userLevelFilter{
     margin-top: 40px;
@@ -279,6 +279,11 @@
     color: white;
     font-family: Conthrax;
     font-size: 1.5em;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+.profileButton{
+    margin:3%;
 }
 
 /* CART */

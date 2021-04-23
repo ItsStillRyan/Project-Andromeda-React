@@ -26,7 +26,7 @@ export default class StoreFront extends React.Component {
                 </Row>
 
                 <Row className="bottom-section justify-content-md-end">
-                    <Col xs="3"className="filter-section">
+                    <Col xs="2"className="filter-section">
                         <div id="userLevelFilter">
                             <p className="filterTitle">User Level</p>
                             <ul>
@@ -45,10 +45,15 @@ export default class StoreFront extends React.Component {
                         </div>
                         <div id="imagingFilter">
                             <p className="filterTitle">Best for Imaging</p>
+                            <ul>
+                                <li>Lunar & Planetary</li>
+                                <li>Deep Sky</li>
+                                <li>Solar, lunar, planetary & Messier objects</li>
+                            </ul>
                         </div>
 
                     </Col>
-                    <Col xs="9" className="listing-section">
+                    <Col xs="10" className="listing-section">
                         <MainListing />
                     </Col>
                    

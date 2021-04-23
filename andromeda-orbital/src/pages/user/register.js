@@ -37,16 +37,6 @@ export default function Register() {
         })
     }
 
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-        } else {
-            this.sendForm()
-        }
-        setValidated(true);
-    };
-
     return (
         <React.Fragment>
             <Container className="fulllogin-section">
@@ -62,7 +52,7 @@ export default function Register() {
                     <Col className="show-col">
                         <div className="registerForm-section">
 
-                            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                            <Form>
                                 {/* USERNAME */}
                                 <Form.Group controlId="formGroupUsername">
                                     <Form.Label className="login-label">Username</Form.Label>
@@ -206,6 +196,7 @@ export default function Register() {
                                 </Form.Group>
                                 <Link to="/login">
                                     <Button
+                                        onClick={sendForm}
                                         variant="outline-warning"
                                     >Submit</Button>
                                 </Link>

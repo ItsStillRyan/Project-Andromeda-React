@@ -11,6 +11,15 @@ export default function Profile() {
 
     const userid = localStorage.getItem("id")
     const [profile, setProfile] = useState({})
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [fname, setfname] = useState("")
+    const [lname, setlname] = useState("")
+    const [contact, setContact] = useState("")
+    const [address, setAddress] = useState("")
+    const [postalCode, setpostalCode] = useState("")
+
 
     useEffect(() => {
         const profileFetch = async () => {
@@ -28,7 +37,11 @@ export default function Profile() {
     const logoutClick = async () => {
         localStorage.clear()
         const logout = await axios.get(BASE_URL + "/api/users/logout")
-    }
+    }  
+
+    console.log(profile)
+
+
 
     return (
         <React.Fragment>
@@ -43,10 +56,32 @@ export default function Profile() {
                 <div className="authorizationSection">
                     <p className="profileTitles">Authorization</p>
                     <Row>
+                        <Col xs={4}>
+                            <Form>
+                                <Form.Group>
+                                    <Form.Label>Username: </Form.Label>
+                                    <Form.Control
+                                        value={profile.username}
+                                    ></Form.Control>
+                                    <Form.Label>Email: </Form.Label>
+                                    <Form.Control
+                                        value={profile.email}
+                                    ></Form.Control>
+                                    <Form.Label>Password: </Form.Label>
+                                    <Form.Control></Form.Control>
+                                    <Button variant="outline-info" className="profileButton">Update Account info</Button>
+                                </Form.Group>
+                            </Form>
+                        </Col>
+                    </Row>
+
+                    
+
+                    {/* <Row>
                         <Col xs={3}>Username: </Col>
                         <Col><p>{profile.username}</p></Col>
                         <Col xs={2}>
-                            <Button variant="outline-info" size="sm">Change</Button>
+
                         </Col>
                     </Row>
                     <Row>
@@ -62,12 +97,46 @@ export default function Profile() {
                         <Col xs={2}>
                             <Button variant="outline-info" size="sm">Change</Button>
                         </Col>
-                    </Row>
+                    </Row> */}
                 </div>
 
                 <div className="profileInfoSection">
                     <p className="profileTitles">Profile Info</p>
                     <Row>
+                        <Col xs={4}>
+                            <Form>
+                                <Form.Group>
+                                    <Form.Label>First Name</Form.Label>
+                                    <Form.Control
+                                    value={profile.fname}
+                                    ></Form.Control>
+
+                                    <Form.Label>Last Name</Form.Label>
+                                    <Form.Control
+                                    value={profile.lname}
+                                    ></Form.Control>
+
+                                    <Form.Label>Contact</Form.Label>
+                                    <Form.Control
+                                    value={profile.contact}
+                                    ></Form.Control>
+
+                                    <Form.Label>Address</Form.Label>
+                                    <Form.Control
+                                    value={profile.address}
+                                    ></Form.Control>
+
+                                    <Form.Label>Postal Code</Form.Label>
+                                    <Form.Control
+                                    value={profile.postalCode}
+                                    ></Form.Control>
+
+                                    <Button variant="outline-info" className="profileButton">Update Personal info</Button>
+                                </Form.Group>
+                            </Form>
+                        </Col>
+                    </Row>
+                    {/* <Row>
                         <Col xs={3}>First Name: </Col>
                         <Col><p>{profile.fname}</p></Col>
                         <Col xs={2}>
@@ -101,7 +170,7 @@ export default function Profile() {
                         <Col xs={2}>
                             <Button variant="outline-info" size="sm">Change</Button>
                         </Col>
-                    </Row>
+                    </Row> */}
                 </div>
                 <Button
                     variant="outline-danger"
