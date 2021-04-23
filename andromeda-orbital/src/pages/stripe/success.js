@@ -23,7 +23,7 @@ export default class SuccessURL extends React.Component {
     }
 
     removeItem = async (telescopeid) => {
-        const remove = await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/remove")
+        const remove = await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/removeMain")
     }
 
     clearCart = () => {
@@ -34,11 +34,40 @@ export default class SuccessURL extends React.Component {
         return accum
     }
 
+    shippingNumGen = (length) => {
+        let result = [];
+        let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let charactersLength = characters.length;
+        for (let i = 0; i < length; i++) {
+            result.push(characters.charAt(Math.floor(Math.random() *
+                charactersLength)));
+        }
+        return result.join('');
+    }
+
 
     render() {
         return (
             <React.Fragment>
                 {this.clearCart()}
+                <div id="success-section">
+                    <div>
+                        <p id="successTitle">Order Successful!</p>
+                        <p>Your Shipping number is: <br/><span id="successShipNum">{this.shippingNumGen(40)}</span></p>
+                    </div>
+                    <div id="success-buttonCluster">
+
+                        <Link to={"/profile/" + userid}>
+                            <Button variant="outline-success">Check your Order</Button>
+                        </Link>
+                        
+                        <Link to="/">
+                            <Button variant="outline-warning">Back to Homepage</Button>
+                        </Link>
+                        
+                    </div>
+                </div>
+
             </React.Fragment>
         )
     }

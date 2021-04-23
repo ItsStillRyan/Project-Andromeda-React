@@ -317,3 +317,20 @@
     color: white;
     font-family: Conthrax;
 }
+
+/* SUCCESS URL */
+#success-section{
+    color: white;
+    font-family: Conthrax;
+    text-align: center;
+    padding: 10%;
+}
+#successTitle{
+    font-size: 3em;
+}
+#successShipNum{
+    color: orange;
+}
+#success-buttonCluster{
+    margin-top: 10%;
+}
