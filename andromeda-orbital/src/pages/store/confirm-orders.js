@@ -58,6 +58,7 @@ export default class CartConfirm extends React.Component {
             'shipping_id': this.state.shipping,
             'users_id': localStorage.getItem("id")
         }) 
+        localStorage.setItem("recentOrder", response.data.id)
 
         window.location.assign(BASE_URL + "/api/checkout/" + userid)
     }

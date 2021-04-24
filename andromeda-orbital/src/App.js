@@ -36,13 +36,17 @@ function App() {
 
     if (userid) {
         const firstTrigger = setInterval(() => setShow(true), 840000)
-
-        const secondTrigger = setInterval(async () => {
-            localStorage.clear()
-            const logout = await axios.get(BASE_URL + "/api/users/logout")
-        }, 850000)
-
     }
+
+    // const secondTrigger = setInterval(async () => {
+    //         localStorage.clear()
+    //         const logout = await axios.get(BASE_URL + "/api/users/logout")
+    //     }, 850000)
+
+    // if (show){
+    //     clearInterval(secondTrigger)
+    // }
+
     useEffect(() => {
         const profileFetch = async () => {
             const response = await axios.get(BASE_URL + "/api/users/profile/" + userid, {
@@ -65,7 +69,6 @@ function App() {
         } else {
             event.preventDefault();
             event.stopPropagation();
-
             const response = await axios.post(BASE_URL + "/api/users/login", {
                 'username': profile.username,
                 'password': password
@@ -74,7 +77,6 @@ function App() {
             localStorage.setItem('accessToken', response.data.accessToken);
             localStorage.setItem('refreshToken', response.data.refreshToken);
             localStorage.setItem('id', response.data.id)
-            clearInterval(this.secondTrigger)
             setShow(false)
 
         }

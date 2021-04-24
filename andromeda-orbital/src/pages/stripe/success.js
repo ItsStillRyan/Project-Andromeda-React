@@ -6,43 +6,23 @@ import config from "../../config";
 
 const BASE_URL = config.BASE_URL
 const userid = localStorage.getItem("id")
+const recentOrderId = localStorage.getItem("recentOrder")
 
+export default function SuccessURL() {
 
-export default class SuccessURL extends React.Component {
-
-    state = {
-        cart: [],
-        orders: []
-
-    }
-
-    async componentDidMount() {
-        // const response = await axios.get(BASE_URL + "/api/cart/" + userid)
-        // this.setState({
-        //     cart: response.data
-        // })
-
-        await axios.get(BASE_URL + "/api/order/" + this.state.orderId + "/status", {
+    useEffect(async () => {
+        await axios.post(BASE_URL + "/api/order/" + recentOrderId + "/status", {
             "status_id": "2"
         })
-        if (!userid) {
-            window.location.assign("/unauthorize")
-        }
+        await axios.get(BASE_URL + "/api/cart/" + userid + "/removeMain")
+    }, [])
+
+    if (!userid) {
+        window.location.assign("/unauthorize")
     }
 
-    removeItem = async (telescopeid) => {
-        const remove = await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/removeMain")
-    }
 
-    // clearCart = () => {
-    //     let accum = []
-    //     for (let c of this.state.cart) {
-    //         accum.push(this.removeItem(c.telescope.id))
-    //     }
-    //     return accum
-    // }
-
-    shippingNumGen = (length) => {
+    const shippingNumGen = (length) => {
         let result = [];
         let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         let charactersLength = characters.length;
@@ -53,47 +33,28 @@ export default class SuccessURL extends React.Component {
         return result.join('');
     }
 
-    // orderId = async () => {
-    //     const response2 = await axios.get(BASE_URL + "/api/order/" + userid)
-    //     this.setState({
-    //         orders: response2.data
-    //     })
-    //     let accum = []
-    //     for (let o of this.state.order) {
-    //         accum.push(o.id)
-    //     }
-    //     return accum
-    // }
 
-
-
-
-
-    render() {
-        return (
-            <React.Fragment>
-                {/* {this.clearCart()} */}
-                {/* {this.orderId()} */}
-                <div id="success-section">
-                    <div>
-                        <p id="successTitle">Order Successful!</p>
-                        <p>Your Shipping number is: <br /><span id="successShipNum">{this.shippingNumGen(40)}</span></p>
-                    </div>
-                    <div id="success-buttonCluster">
-
-                        <Link to={"/profile/" + userid}>
-                            <Button variant="outline-success">Check your Order</Button>
-                        </Link>
-
-                        <Link to="/">
-                            <Button variant="outline-warning">Back to Homepage</Button>
-                        </Link>
-
-                    </div>
+    return (
+        <React.Fragment>
+            
+            <div id="success-section">
+                <div>
+                    <p id="successTitle">Order Successful!</p>
+                    <p>Your Shipping number is: <br /><span id="successShipNum">{shippingNumGen(40)}</span></p>
                 </div>
+                <div id="success-buttonCluster">
 
-            </React.Fragment>
-        )
-    }
+                    <Link to={"/profile/" + userid}>
+                        <Button variant="outline-success">Check your Order</Button>
+                    </Link>
 
+                    <Link to="/">
+                        <Button variant="outline-warning">Back to Homepage</Button>
+                    </Link>
+
+                </div>
+            </div>
+
+        </React.Fragment>
+    )
 }

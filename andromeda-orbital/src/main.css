@@ -124,6 +124,10 @@
     color:white;
     font-family: Conthrax;
 }
+.filter-section ul{
+    list-style-type: none; /* Remove bullets */
+}
+
 .filterTitle{
     font-size: 1.3em;
     text-decoration: underline;
@@ -138,6 +142,9 @@
     margin-top: 40px;
 }
 #imagingFilter{
+    margin-top: 40px;
+}
+#searchBar{
     margin-top: 40px;
 }
 
