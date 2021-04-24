@@ -22,6 +22,9 @@ export default class CartConfirm extends React.Component {
         this.setState({
             cart: response.data,
         })
+        if (!userid) {
+            window.location.assign("/unauthorize")
+        }
 
     }
 

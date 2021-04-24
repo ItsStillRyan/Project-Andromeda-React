@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Form, Button, Row, Col, Container, InputGroup, Alert } from 'react-bootstrap'
+import { Form, Button, Row, Col, Container, InputGroup, Alert, Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import config from "../../config";
 //images
@@ -20,8 +20,11 @@ export default function Register() {
     const [address, setaddress] = useState("")
     const [postalCode, setpostalCode] = useState("")
     const [validated, setValidated] = useState(false);
-    const [show, setShow] = useState(true);
-    const [showError, setShowError] = useState(true);
+
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const sendForm = async () => {
         const response = await axios.post(BASE_URL + "/api/users/register", {
@@ -39,6 +42,22 @@ export default function Register() {
 
     return (
         <React.Fragment>
+
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>User Created.</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Welcome into The Andromeda Orbital Station.</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>Log in</Button>
+                </Modal.Footer>
+            </Modal>
+
             <Container className="fulllogin-section">
                 <Row>
                     <Col className="show-col">
@@ -196,8 +215,11 @@ export default function Register() {
                                 </Form.Group>
                                 <Link to="/login">
                                     <Button
-                                        onClick={sendForm}
                                         variant="outline-warning"
+                                        onClick={() =>{
+                                            sendForm()
+                                            handleShow()
+                                        }}
                                     >Submit</Button>
                                 </Link>
                             </Form>

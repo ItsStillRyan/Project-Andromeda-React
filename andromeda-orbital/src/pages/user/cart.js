@@ -19,6 +19,9 @@ export default class Cart extends React.Component {
         this.setState({
             cart: response.data,
         })
+        if (!userid) {
+            window.location.assign("/unauthorize")
+        }
     }
 
     calculateTotalPrice = () => {
@@ -49,7 +52,7 @@ export default class Cart extends React.Component {
         })
         setTimeout(window.location.reload(), 3000)
         return update
-        
+
     }
 
     renderCart = () => {
@@ -93,7 +96,7 @@ export default class Cart extends React.Component {
                             <Button
                                 variant="outline-warning"
                                 size="sm"
-                                onClick={() => {this.updateQuantity(c.telescope.id)}}
+                                onClick={() => { this.updateQuantity(c.telescope.id) }}
                             >
                                 Update
                             </Button>

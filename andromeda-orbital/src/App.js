@@ -14,6 +14,7 @@ import Profile from './pages/user/profile'
 import Cart from './pages/user/cart'
 import ConfirmOrders from './pages/store/confirm-orders'
 import Orders from './pages/user/order'
+import Unauthorized from './commons/unauthorize'
 import SuccessURL from './pages/stripe/success'
 import ErrorURL from './pages/stripe/error'
 
@@ -30,10 +31,6 @@ function App() {
             localStorage.setItem("accessToken", response.data.accessToken);
         }, config.REFRESH_TOKEN_INTERVAL);
     });
-
- 
-
-
 
     return (
         <Router>
@@ -52,6 +49,7 @@ function App() {
                             <Route exact path="/orders" component={Orders} />
                             <Route exact path="/success" component={SuccessURL} />
                             <Route exact path="/error" component={ErrorURL} />
+                            <Route exact path="/unauthorize" component={Unauthorized} />
                             {/* individual item */}
                             <Route exact path="/:id" component={IndivItem} />
                         </Switch>

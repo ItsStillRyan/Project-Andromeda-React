@@ -21,10 +21,13 @@ export default class SuccessURL extends React.Component {
         // this.setState({
         //     cart: response.data
         // })
-        
+
         await axios.get(BASE_URL + "/api/order/" + this.state.orderId + "/status", {
             "status_id": "2"
         })
+        if (!userid) {
+            window.location.assign("/unauthorize")
+        }
     }
 
     removeItem = async (telescopeid) => {
@@ -62,7 +65,7 @@ export default class SuccessURL extends React.Component {
     //     return accum
     // }
 
-    
+
 
 
 
