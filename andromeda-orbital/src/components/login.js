@@ -13,64 +13,49 @@ const BASE_URL = config.BASE_URL
 export default function LoginComp() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    let clickLogin = async () => {
-        const response = await axios.post(BASE_URL + "/api/users/login", {
-            'username': username,
-            'password': password
-        })
-
-        localStorage.setItem('accessToken', response.data.accessToken);
-        localStorage.setItem('refreshToken', response.data.refreshToken);
-        localStorage.setItem('id', response.data.id)
+    const [validated, setValidated] = useState(false);
 
 
-        let idTest = localStorage.getItem('id')
 
-        if (idTest == "undefined") {
-            localStorage.removeItem("accessToken")
-            localStorage.removeItem("refreshToken")
-            localStorage.removeItem("id")
+    const handleSubmit = async (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        } else {
+            event.preventDefault();
+            event.stopPropagation();
 
-            localStorage.setItem('accessToken', response.data.accessToken)
+            const response = await axios.post(BASE_URL + "/api/users/login", {
+                'username': username,
+                'password': password
+            })
+
+            localStorage.setItem('accessToken', response.data.accessToken);
             localStorage.setItem('refreshToken', response.data.refreshToken);
             localStorage.setItem('id', response.data.id)
+            const userid = localStorage.getItem("id")
+
             
-        } else {
-            this.handleShow()
-            setTimeout(window.location.reload(), 3000)
+            window.location.assign("/profile/"+userid)
         }
-        console.log(response.data)
-    }
+        setValidated(true);
 
-    
-
-
+    };
 
     return (
         <React.Fragment>
-            <Modal show={show} onHide={handleClose} animation={false}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Logging in...</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Welcome Back, {username}</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>Proceed</Button>
-                </Modal.Footer>
-            </Modal>
 
             <Col className="show-col">
                 <div className="loginForm-section">
-                    <Form>
-                        <Form.Group controlId="formBasicEmail">
+
+                    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+
+                        <Form.Group controlId="formBasicUsername">
                             <Form.Label className="login-label">Username</Form.Label>
                             <Form.Control
-
-                                type="Username"
+                                required
+                                type="text"
                                 placeholder="Enter Username"
                                 name="username"
                                 value={username}
@@ -84,6 +69,7 @@ export default function LoginComp() {
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label className="login-label">Password</Form.Label>
                             <Form.Control
+                                required
                                 type="password"
                                 placeholder="Password"
                                 name="password"
@@ -94,12 +80,10 @@ export default function LoginComp() {
                                 Please enter a valid Password.
                         </Form.Control.Feedback>
                         </Form.Group>
-                        <Link to="/">
-                            <Button
-                                variant="outline-warning"
-                                onClick={clickLogin}
-                            >Log in</Button>
-                        </Link>
+                        <Button
+                            type="submit"
+                            variant="outline-warning"
+                        >Log in</Button>
                     </Form>
                 </div>
                 <div className="registerHere-section">

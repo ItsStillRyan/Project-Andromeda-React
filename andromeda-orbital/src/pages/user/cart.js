@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Form, Button, Row, Col, Container } from 'react-bootstrap'
+import { Form, Button, Row, Col, Container, Modal } from 'react-bootstrap'
 import config from "../../config";
 import { Link } from 'react-router-dom'
 
@@ -11,7 +11,8 @@ export default class Cart extends React.Component {
 
     state = {
         cart: [],
-        quantity: ""
+        quantity: "",
+        show:false
     }
 
     async componentDidMount() {
@@ -71,7 +72,10 @@ export default class Cart extends React.Component {
                         <Button
                             variant="outline-warning"
                             size="sm"
-                            onClick={() => { this.removeItem(c.telescope.id) }}
+                            onClick={() => { 
+                                this.removeItem(c.telescope.id) 
+                                this.setState({show:true});
+                            }}
                         >
                             <i className="far fa-trash-alt"></i>
                         </Button>
@@ -112,6 +116,13 @@ export default class Cart extends React.Component {
     render() {
         return (
             <React.Fragment>
+
+                <Modal show={this.state.show} onHide={() =>{this.setState({show:false});}} centered>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Deleted from cart</Modal.Title>
+                    </Modal.Header>
+                </Modal>
+
                 <div id="cart-section-whole">
                     <h1 id="cartTitle">Cart</h1>
                     <Row>

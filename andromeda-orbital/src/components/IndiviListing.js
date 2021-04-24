@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import config from "../../src/config";
-import { Row, Col, Button, Table } from 'react-bootstrap'
+import { Row, Col, Button, Table, Modal } from 'react-bootstrap'
 import { withRouter } from "react-router-dom";
 
 const BASE_URL = config.BASE_URL
@@ -22,8 +22,12 @@ class IndivListing extends React.Component {
         category: "",
         brand: "",
         image_url: "",
-        id: ""
+        id: "",
+        show:false
     }
+
+    
+
 
     async componentDidMount() {
         const
@@ -54,6 +58,7 @@ class IndivListing extends React.Component {
 
     }
 
+
     calcShipping() {
         return Math.floor((Math.random() * 60) + 20);
     }
@@ -63,9 +68,22 @@ class IndivListing extends React.Component {
         return add
     }
 
+ 
+
     render() {
         return (
             <React.Fragment>
+
+                <Modal show={this.state.show} onHide={() =>{this.setState({show:false});}} centered>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Added to Cart</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Footer>
+                        <Button variant="outline-warning" onClick={() =>{this.setState({show:false});}}>Close</Button>
+                        
+                    </Modal.Footer>
+                </Modal>
+
                 <Row>
                     {/* image col */}
                     <Col xs={4}>
@@ -107,7 +125,10 @@ class IndivListing extends React.Component {
                                 <div>
                                     <Button
                                         variant="outline-warning"
-                                        onClick={() => { this.addToCart(this.state.id) }}
+                                        onClick={() => {
+                                            this.addToCart(this.state.id)
+                                            this.setState({show:true});
+                                        }}
                                     >Add to Cart</Button>
                                 </div>
                             </div>

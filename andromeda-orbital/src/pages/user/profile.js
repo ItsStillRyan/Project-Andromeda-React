@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Form, Button, Row, Col, Container } from 'react-bootstrap'
+import { Button, Row, Col, Table } from 'react-bootstrap'
 import { useParams, Link } from "react-router-dom"
 import config from "../../config";
 
@@ -11,22 +11,7 @@ const userid = localStorage.getItem("id")
 export default function Profile() {
 
     const userid = localStorage.getItem("id")
-
     const [profile, setProfile] = useState({})
-
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const [confirm_password, setconfirm_password] = useState("")
-    const [fname, setfname] = useState("")
-    const [lname, setlname] = useState("")
-    const [contact, setcontact] = useState("")
-    const [email, setemail] = useState("")
-    const [address, setaddress] = useState("")
-    const [postalCode, setpostalCode] = useState("")
-    const [validated, setValidated] = useState(false);
-    const [show, setShow] = useState(true);
-    const [showError, setShowError] = useState(true);
-
 
     useEffect(() => {
         const profileFetch = async () => {
@@ -45,96 +30,93 @@ export default function Profile() {
         const logout = await axios.get(BASE_URL + "/api/users/logout")
     }
 
-    const sendUpdateProfile = async () => {
-        const response = await axios.post 
-    }
-
-    console.log(profile)
 
     if (userid) {
         return (
             <React.Fragment>
                 <div className="profileSection">
 
-                    <div className="storeSection">
-                        <p className="profileTitles">Store</p>
+                    <div id="storeSection">
+                        <p className="profileTitles">Dashboard</p>
                         <Link to="/orders">
                             <Button variant="outline-info">Orders</Button>
                         </Link>
                     </div>
 
-                    <div className="authorizationSection">
-                        <p className="profileTitles">Authorization</p>
-                        <Row>
-                            <Col xs={4}>
-                                <Form>
-                                    <Form.Group>
-                                        <Form.Label>Username: </Form.Label>
-                                        <Form.Control
-                                            value={profile.username}
-                                        ></Form.Control>
-                                        <Form.Label>Email: </Form.Label>
-                                        <Form.Control
-                                            value={profile.email}
-                                        ></Form.Control>
-                                        <Form.Label>Password: </Form.Label>
-                                        <Form.Control></Form.Control>
-                                        <Button variant="outline-info" className="profileButton">Update Account info</Button>
-                                    </Form.Group>
-                                </Form>
-                            </Col>
-                        </Row>
+                    <Row id="profileRow">
+                        <Col id="authorizationSection" lg={5}>
+                            <p className="profileTitles">Profile Info</p>
+                            <Table borderless>
+                                <tbody>
+                                    <tr>
+                                        <td>Username:</td>
+                                        <td>{profile.username}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email:</td>
+                                        <td>{profile.email}</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                            <Link to={"/profile/" + userid + "/profileUpdate"}>
+                                <Button
+                                    variant="outline-info"
+                                >Update Profile Info
+                        </Button>
+                            </Link>
+                        </Col>
+
+                        <Col id="profileInfoSection" lg={5}>
+                            <p className="profileTitles">Personal Info</p>
+                            <Table borderless>
+                                <tbody>
+                                    <tr>
+                                        <td>First Name:</td>
+                                        <td>{profile.fname}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name:</td>
+                                        <td>{profile.lname}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contact:</td>
+                                        <td>{profile.contact}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address:</td>
+                                        <td>{profile.address}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Postal Code:</td>
+                                        <td>{profile.postalCode}</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                            <Link to={"/profile/" + userid + "/personalUpdate"}>
+                                <Button
+                                    variant="outline-info"
+                                >Update Personal Info
+                        </Button>
+                            </Link>
+                        </Col>
+                    </Row>
+                    <div className="profileButton">
+                        <Button
+                            variant="outline-danger"
+                            onClick={logoutClick}
+                            href="/"
+                        >Log Out
+                        </Button>
                     </div>
 
-                    <div className="profileInfoSection">
-                        <p className="profileTitles">Profile Info</p>
-                        <Row>
-                            <Col xs={4}>
-                                <Form>
-                                    <Form.Group>
-                                        <Form.Label>First Name</Form.Label>
-                                        <Form.Control
-                                            value={profile.fname}
-                                        ></Form.Control>
-
-                                        <Form.Label>Last Name</Form.Label>
-                                        <Form.Control
-                                            value={profile.lname}
-                                        ></Form.Control>
-
-                                        <Form.Label>Contact</Form.Label>
-                                        <Form.Control
-                                            value={profile.contact}
-                                        ></Form.Control>
-
-                                        <Form.Label>Address</Form.Label>
-                                        <Form.Control
-                                            value={profile.address}
-                                        ></Form.Control>
-
-                                        <Form.Label>Postal Code</Form.Label>
-                                        <Form.Control
-                                            value={profile.postalCode}
-                                        ></Form.Control>
-
-                                        <Button variant="outline-info" className="profileButton">Update Personal info</Button>
-                                    </Form.Group>
-                                </Form>
-                            </Col>
-                        </Row>
-                    </div>
-
-                    <Button
-                        variant="outline-danger"
-                        onClick={logoutClick}
-                        href="/"
-                    >Log Out</Button>
 
                 </div>
-            </React.Fragment>
+            </React.Fragment >
         )
-    } else {
+    } else if (!userid) {
         window.location.assign("/unauthorize")
     }
+
+
 }
 

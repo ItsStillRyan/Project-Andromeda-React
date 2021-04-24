@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Form, Button, Row, Col, Container, InputGroup, Alert, Modal } from 'react-bootstrap'
+import { Form, Button, Row, Col, Container, InputGroup, Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import config from "../../config";
 //images
@@ -19,44 +19,38 @@ export default function Register() {
     const [email, setemail] = useState("")
     const [address, setaddress] = useState("")
     const [postalCode, setpostalCode] = useState("")
+
     const [validated, setValidated] = useState(false);
 
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleSubmit = async (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        } else {
+            event.preventDefault();
+            event.stopPropagation();
 
-    const sendForm = async () => {
-        const response = await axios.post(BASE_URL + "/api/users/register", {
-            'username': username,
-            'password': password,
-            'confirm_password': confirm_password,
-            'fname': fname,
-            'lname': lname,
-            'contact': contact,
-            'email': email,
-            'address': address,
-            'postalCode': postalCode
-        })
-    }
+            const response = await axios.post(BASE_URL + "/api/users/register", {
+                'username': username,
+                'password': password,
+                'confirm_password': confirm_password,
+                'fname': fname,
+                'lname': lname,
+                'contact': contact,
+                'email': email,
+                'address': address,
+                'postalCode': postalCode
+            })
+            window.location.assign("/login")
+        }
+
+        setValidated(true);
+    };
 
     return (
         <React.Fragment>
-
-            <Modal
-                show={show}
-                onHide={handleClose}
-                backdrop="static"
-                keyboard={false}
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title>User Created.</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Welcome into The Andromeda Orbital Station.</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>Log in</Button>
-                </Modal.Footer>
-            </Modal>
 
             <Container className="fulllogin-section">
                 <Row>
@@ -71,7 +65,7 @@ export default function Register() {
                     <Col className="show-col">
                         <div className="registerForm-section">
 
-                            <Form>
+                            <Form noValidate validated={validated} onSubmit={handleSubmit}>
                                 {/* USERNAME */}
                                 <Form.Group controlId="formGroupUsername">
                                     <Form.Label className="login-label">Username</Form.Label>
@@ -213,15 +207,11 @@ export default function Register() {
                                         Please provide a valid postal code.
                                         </Form.Control.Feedback>
                                 </Form.Group>
-                                <Link to="/login">
+
                                     <Button
+                                        type="submit"
                                         variant="outline-warning"
-                                        onClick={() =>{
-                                            sendForm()
-                                            handleShow()
-                                        }}
                                     >Submit</Button>
-                                </Link>
                             </Form>
 
                             <div className="registerHere-section">
