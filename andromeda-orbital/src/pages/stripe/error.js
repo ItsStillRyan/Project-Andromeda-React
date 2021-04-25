@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Form, Button, Row, Col, Container } from 'react-bootstrap'
-import { useParams, Link } from "react-router-dom"
-import config from "../../config";
+import React from "react";
+import { Button } from 'react-bootstrap'
+import { Link } from "react-router-dom"
 
-const BASE_URL = config.BASE_URL
 const userid = localStorage.getItem("id")
-
 
 export default function ErrorURL() {
 

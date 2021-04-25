@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import config from "../../src/config";
-import { Row, Col, Button, Table, Modal } from 'react-bootstrap'
+import { Row, Col, Button, Table, Modal, Accordion, Card } from 'react-bootstrap'
 import { withRouter } from "react-router-dom";
 
 const BASE_URL = config.BASE_URL
@@ -23,10 +23,10 @@ class IndivListing extends React.Component {
         brand: "",
         image_url: "",
         id: "",
-        show:false
+        show: false
     }
 
-    
+
 
 
     async componentDidMount() {
@@ -68,26 +68,26 @@ class IndivListing extends React.Component {
         await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/add2")
     }
 
- 
+
 
     render() {
         return (
             <React.Fragment>
 
-                <Modal show={this.state.show} onHide={() =>{this.setState({show:false});}} centered>
+                <Modal show={this.state.show} onHide={() => { this.setState({ show: false }); }} centered>
                     <Modal.Header closeButton>
                         <Modal.Title>Added to Cart</Modal.Title>
                     </Modal.Header>
                     <Modal.Footer>
-                        <Button variant="outline-warning" onClick={() =>{this.setState({show:false});}}>Close</Button>
-                        
+                        <Button variant="outline-warning" onClick={() => { this.setState({ show: false }); }}>Close</Button>
+
                     </Modal.Footer>
                 </Modal>
 
                 <Row>
                     {/* image col */}
-                    <Col xs={4}>
-                        <div className="indivImgCol">
+                    <Col xs={4} align="left">
+                        <div className="indivImgCol" align="left">
                             <img
                                 src={this.state.image_url}
                                 alt={this.state.name}
@@ -127,7 +127,7 @@ class IndivListing extends React.Component {
                                         variant="outline-warning"
                                         onClick={() => {
                                             this.addToCart(this.state.id)
-                                            this.setState({show:true});
+                                            this.setState({ show: true });
                                         }}
                                     >Add to Cart</Button>
                                 </div>
@@ -136,45 +136,59 @@ class IndivListing extends React.Component {
                     </Col>
                 </Row>
                 {/* detailed description area */}
+
                 <Row>
                     <Col>
                         <div className="indivFullDetailsSection">
-                            <div id="indivFullSpecTitle">
-                                <p>Full Specs:</p>
-                            </div>
-                            <div id="indivSpecDesc">
-                                {this.state.description}
-                            </div>
-                            <div className="indivTableTd">
-                                <Table striped hover size="sm">
-                                    <tbody>
-                                        <tr>
-                                            <td><span className="indivTablelink">Imaging Type: </span>{this.state.imagingType}</td>
-                                            <td><span className="indivTablelink">Optical Design: </span>{this.state.opticalDesign}</td>
+                            <Accordion>
+                                <Card style={{backgroundColor: "rgba(0,0,0,0.2)"}}>
+                                    <Card.Header>
+                                        <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{color: "white"}}>More Details <i class="fas fa-level-down-alt"></i></Accordion.Toggle>
+                                    </Card.Header>
+                                    <Accordion.Collapse eventKey="0">
+                                        <Card.Body>
 
-                                        </tr>
-                                        <tr>
-                                            <td><span className="indivTablelink">Aperture: </span>{this.state.apertureRange}</td>
-                                            <td><span className="indivTablelink">f/Ratio: </span>{this.state.fratioRange}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><span className="indivTablelink">Weight: </span>{this.state.weight}</td>
-                                            <td><span className="indivTablelink">User Level: </span>{this.state.userLevel}</td>
+                                            <div id="indivFullSpecTitle">
+                                                <p>Full Specs:</p>
+                                            </div>
+                                            <div id="indivSpecDesc">
+                                                {this.state.description}
+                                            </div>
+                                            <div className="indivTableTd">
+                                                <Table striped hover size="sm">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><span className="indivTablelink">Imaging Type: </span>{this.state.imagingType}</td>
+                                                            <td><span className="indivTablelink">Optical Design: </span>{this.state.opticalDesign}</td>
 
-                                        </tr>
-                                        <tr>
-                                            <td><span className="indivTablelink">Brand: </span>{this.state.brand}</td>
-                                            <td><span className="indivTablelink">Category: </span>{this.state.category}</td>
-                                        </tr>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span className="indivTablelink">Aperture: </span>{this.state.apertureRange}</td>
+                                                            <td><span className="indivTablelink">f/Ratio: </span>{this.state.fratioRange}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span className="indivTablelink">Weight: </span>{this.state.weight}</td>
+                                                            <td><span className="indivTablelink">User Level: </span>{this.state.userLevel}</td>
 
-                                    </tbody>
-                                </Table>
-                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span className="indivTablelink">Brand: </span>{this.state.brand}</td>
+                                                            <td><span className="indivTablelink">Category: </span>{this.state.category}</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </Table>
+                                            </div>
+
+                                        </Card.Body>
+                                    </Accordion.Collapse>
+                                </Card>
+                            </Accordion>
                         </div>
                     </Col>
                 </Row>
 
-            </React.Fragment>
+            </React.Fragment >
         )
     }
 }

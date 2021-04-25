@@ -8,6 +8,7 @@ import { Button, Modal, Form } from 'react-bootstrap'
 import NavbarMain from './commons/navbar'
 import FooterMain from './commons/footer'
 import StoreFront from './pages/store/store-front'
+import TelescopePage from './pages/store/telescopes'
 import IndivItem from './pages/store/individual-item'
 import Login from './pages/user/login'
 import Register from './pages/user/register'
@@ -37,11 +38,11 @@ function App() {
     let secondTrigger
 
     if (userid) {
-        const firstTrigger = setInterval(() => setShow(true), 840000)
+        setInterval(() => setShow(true), 840000)
 
         secondTrigger = setInterval(async () => {
             localStorage.clear()
-            const logout = await axios.get(BASE_URL + "/api/users/logout")
+            await axios.get(BASE_URL + "/api/users/logout")
         }, 850000)
     }
     
@@ -88,7 +89,7 @@ function App() {
 
     const logoutClick = async () => {
         localStorage.clear()
-        const logout = await axios.get(BASE_URL + "/api/users/logout")
+        await axios.get(BASE_URL + "/api/users/logout")
     }
 
 
@@ -155,6 +156,7 @@ function App() {
                         <div className="divContain">
                             <Switch>
                                 <Route exact path="/" component={StoreFront} />
+                                <Route exact path="/telescopes" component={TelescopePage}/>
                                 <Route exact path="/login" component={Login} />
                                 <Route exact path="/register" component={Register} />
                                 <Route exact path="/profile/:id" component={Profile} />

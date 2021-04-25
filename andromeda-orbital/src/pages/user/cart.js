@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Form, Button, Row, Col, Container, Modal } from 'react-bootstrap'
+import { Form, Button, Row, Col, Modal } from 'react-bootstrap'
 import config from "../../config";
 import { Link } from 'react-router-dom'
 
@@ -43,7 +43,7 @@ export default class Cart extends React.Component {
     }
 
     removeItem = async (telescopeid) => {
-        const remove = await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/remove")
+        await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/remove")
         setTimeout(window.location.reload(), 3000)
     }
 
@@ -62,7 +62,7 @@ export default class Cart extends React.Component {
             accum.push(
                 <Row className="indivCart" >
                     <Col xs={2} className="cartImg">
-                        <img src={c.telescope.image_url} />
+                        <img src={c.telescope.image_url} alt={c.telescope.name}/>
                     </Col>
                     <Col xs={6} className="cartName">
                         <p>{c.telescope.name}</p>

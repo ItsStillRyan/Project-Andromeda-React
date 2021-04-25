@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import config from "../../src/config";
-import { Form, Button, Col, Modal } from 'react-bootstrap'
+import { Form, Button, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 

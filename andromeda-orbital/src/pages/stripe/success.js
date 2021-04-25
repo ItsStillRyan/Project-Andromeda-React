@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Form, Button, Row, Col, Container } from 'react-bootstrap'
-import { useParams, Link } from "react-router-dom"
+import { Button } from 'react-bootstrap'
+import { Link } from "react-router-dom"
 import config from "../../config";
 
 const BASE_URL = config.BASE_URL
@@ -12,16 +12,16 @@ export default function SuccessURL() {
 
     const [cart, setCart] = useState([])
 
-    useEffect(async () => {
-        const cart =  await axios.get(BASE_URL + "/api/cart/" + userid)
-        setCart(cart.data)
-        
+    useEffect(() => {
+        async function fetchData() {
+            const cart = await axios.get(BASE_URL + "/api/cart/" + userid)
+            setCart(cart.data)
 
-        await axios.post(BASE_URL + "/api/order/" + recentOrderId + "/status", {
-            "status_id": "2"
-        })
-
-        
+            await axios.post(BASE_URL + "/api/order/" + recentOrderId + "/status", {
+                "status_id": "2"
+            })
+        }
+        fetchData()
     }, [])
 
     if (!userid) {
@@ -41,7 +41,7 @@ export default function SuccessURL() {
     }
 
     const clearCart = async (telescopeid) => {
-        const remove = await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/removeMain" )
+        await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/removeMain")
         setTimeout(window.location.reload(), 1000)
     }
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Form, Button, Row, Col, Container, InputGroup, Modal } from 'react-bootstrap'
+import { Form, Button, Row, Col, Container, InputGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import config from "../../config";
 //images
@@ -32,7 +32,7 @@ export default function Register() {
             event.preventDefault();
             event.stopPropagation();
 
-            const response = await axios.post(BASE_URL + "/api/users/register", {
+            await axios.post(BASE_URL + "/api/users/register", {
                 'username': username,
                 'password': password,
                 'confirm_password': confirm_password,

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
-import { Form, Button, Row, Col, Container } from 'react-bootstrap'
-import { useParams } from "react-router-dom"
+import { Form, Button, Row, Col} from 'react-bootstrap'
 import config from "../../config";
 import { Link } from 'react-router-dom'
 
@@ -34,7 +33,7 @@ export default class CartConfirm extends React.Component {
             accum.push(
                 <Row className="indivCart" >
                     <Col xs={2} className="cartImg">
-                        <img src={c.telescope.image_url} />
+                        <img src={c.telescope.image_url} alt={c.telescope.name}/>
                     </Col>
                     <Col xs={6} className="cartName">
                         <p>{c.telescope.name}</p>

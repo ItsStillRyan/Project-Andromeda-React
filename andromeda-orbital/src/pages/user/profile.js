@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Button, Row, Col, Table } from 'react-bootstrap'
-import { useParams, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import config from "../../config";
 
 const BASE_URL = config.BASE_URL
@@ -10,7 +10,6 @@ const userid = localStorage.getItem("id")
 
 export default function Profile() {
 
-    const userid = localStorage.getItem("id")
     const [profile, setProfile] = useState({})
 
     useEffect(() => {
@@ -27,7 +26,7 @@ export default function Profile() {
 
     const logoutClick = async () => {
         localStorage.clear()
-        const logout = await axios.get(BASE_URL + "/api/users/logout")
+        await axios.get(BASE_URL + "/api/users/logout")
     }
 
 

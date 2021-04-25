@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Form, Button, Row, Col, Container, InputGroup, } from 'react-bootstrap'
-import { useParams, Link } from "react-router-dom"
+import { Form, Button, Col, InputGroup, } from 'react-bootstrap'
+import { Link } from "react-router-dom"
 import config from "../../config";
 
 const BASE_URL = config.BASE_URL
@@ -10,23 +10,15 @@ const userid = localStorage.getItem("id")
 
 export default function UpdatePersonal() {
 
-    const userid = localStorage.getItem("id")
-
     const [profile, setProfile] = useState({})
 
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const [confirm_password, setconfirm_password] = useState("")
     const [fname, setfname] = useState("")
     const [lname, setlname] = useState("")
     const [contact, setcontact] = useState("")
-    const [email, setemail] = useState("")
     const [address, setaddress] = useState("")
     const [postalCode, setpostalCode] = useState("")
 
     const [validated, setValidated] = useState(false);
-    const [show, setShow] = useState(true);
-    const [showError, setShowError] = useState(true);
 
 
     useEffect(() => {
@@ -50,7 +42,7 @@ export default function UpdatePersonal() {
             event.preventDefault();
             event.stopPropagation();
 
-            const response = await axios.post(BASE_URL + "/api/users/" + userid + "/update", {
+            await axios.post(BASE_URL + "/api/users/" + userid + "/update", {
                 "username": profile.username,
                 "password": profile.password,
                 "confirm_password": profile.password,

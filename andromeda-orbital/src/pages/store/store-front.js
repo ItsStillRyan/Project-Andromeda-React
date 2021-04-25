@@ -14,65 +14,64 @@ export default function StoreFront() {
 
     const [product, setProduct] = useState([])
     const [search, setSearch] = useState("")
-    const [searchButtons, setSearchButtons] = useState("")
-    const [display, setDisplay] = useState("")
 
-
-    const ALL = ""
-    const BEGINNER = "Beginner"
-    const INTERMEDIATE = "Intermediate"
-    const ADVANCE = "Advanced"
-
-
-
-    useEffect(async () => {
-        const response = await axios.get(BASE_URL + "/api/telescope")
-        setProduct(response.data)
-
+    useEffect(() => {
+        async function fetchData() {
+            const response = await axios.get(BASE_URL + "/api/telescope")
+            setProduct(response.data)
+        }
+        fetchData()
     }, [])
 
 
     return (
         <React.Fragment>
-            <Row className="top-section">
-
-                <Col xs={3} className="show-col" >
+            <Row className="top-section ">
+                <Col xs={3}>
                     <div className="logo-section">
                         <img src={logo} className="logo-img" alt="androLogo" />
                     </div>
                 </Col>
 
-                <Col className="show-col justify-content-md-center">
+                <Col xs={9} align="center">
                     <div className="title-section">
-                        <p >Andromeda Orbital Store</p>
+                        <p >Andromeda Orbital Station</p>
                     </div>
                 </Col>
             </Row>
             <Row className="middle-section">
                 <Col align="center">
-                    <Button variant="outline-info">
-                        Telescopes
+                    <Link to="/telescopes">
+                        <Button variant="outline-info">
+                            Telescopes
                     </Button>
-                </Col > 
+                    </Link>
+                </Col >
                 <Col align="center">
                     <Button disabled variant="outline-danger">
+                        Cameras
+                        <hr style={{ borderColor: "Orange" }}></hr>
                         Coming Soon
                     </Button >
                 </Col>
                 <Col align="center">
                     <Button disabled variant="outline-danger">
+                        Filters
+                        <hr style={{ borderColor: "Orange" }}></hr>
                         Coming Soon
                     </Button>
                 </Col>
                 <Col align="center">
                     <Button disabled variant="outline-danger">
+                        Accessories
+                        <hr style={{ borderColor: "Orange" }}></hr>
                         Coming Soon
                     </Button>
                 </Col>
             </Row>
 
             <div id="productlist-Title">
-                <p>Telescopes</p>
+                <p>Store</p>
             </div>
 
             <div id="searchBar">
@@ -90,7 +89,7 @@ export default function StoreFront() {
                     </Form.Row>
                 </Form>
             </div>
-            
+
 
             <Row className="bottom-section justify-content-md-end">
                 <Col className="listing-section">
@@ -105,7 +104,7 @@ export default function StoreFront() {
                                             <Card.Title>{p.name}</Card.Title>
                                         </Card.Body>
                                         <Card.Footer>
-                                            <small className="text-muted">SGD ${p.price}</small>
+                                            <small className="priceTag">SGD ${p.price}</small>
                                         </Card.Footer>
                                     </Card>
                                 </Link>
