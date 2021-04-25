@@ -41,45 +41,50 @@ export default class Orders extends React.Component {
     }
 
     render() {
-        return (
-            <React.Fragment>
-                <Row>
-                    <Col xs={12}>
-                        <div id="orderTable-section">
-                            <Table Hover Striped>
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Order Number</th>
-                                        <th>Shipping Type</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {this.renderOrders()}
-                                </tbody>
-                            </Table>
-                        </div>
-                    </Col>
-
-                    {/* <Col xs={2}>
-                    </Col> */}
-                </Row>
-
-                <div id="orderButtonCluster">
+        if (userid) {
+            return (
+                <React.Fragment>
                     <Row>
-                        <Col>
-                            <Link to={"/profile/" + userid}>
-                                <Button variant="outline-warning">Back to Profile</Button>
-                            </Link>
+                        <Col xs={12}>
+                            <div id="orderTable-section">
+                                <Table Hover Striped>
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Order Number</th>
+                                            <th>Shipping Type</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {this.renderOrders()}
+                                    </tbody>
+                                </Table>
+                            </div>
                         </Col>
+
+                        {/* <Col xs={2}>
+                    </Col> */}
                     </Row>
-                </div>
+
+                    <div id="orderButtonCluster">
+                        <Row>
+                            <Col>
+                                <Link to={"/profile/" + userid}>
+                                    <Button variant="outline-warning">Back to Profile</Button>
+                                </Link>
+                            </Col>
+                        </Row>
+                    </div>
 
 
-            </React.Fragment>
-        )
+                </React.Fragment>
+            )
+        } else if (!userid) {
+            window.location.assign("/unauthorize")
+        }
     }
+
 
 
 }

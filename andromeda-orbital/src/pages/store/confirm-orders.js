@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Form, Button, Row, Col} from 'react-bootstrap'
+import { Form, Button, Row, Col } from 'react-bootstrap'
 import config from "../../config";
 import { Link } from 'react-router-dom'
 
@@ -33,7 +33,7 @@ export default class CartConfirm extends React.Component {
             accum.push(
                 <Row className="indivCart" >
                     <Col xs={2} className="cartImg">
-                        <img src={c.telescope.image_url} alt={c.telescope.name}/>
+                        <img src={c.telescope.image_url} alt={c.telescope.name} />
                     </Col>
                     <Col xs={6} className="cartName">
                         <p>{c.telescope.name}</p>
@@ -56,7 +56,7 @@ export default class CartConfirm extends React.Component {
             'status_id': "1",
             'shipping_id': this.state.shipping,
             'users_id': localStorage.getItem("id")
-        }) 
+        })
         localStorage.setItem("recentOrder", response.data.id)
 
         window.location.assign(BASE_URL + "/api/checkout/" + userid)
@@ -64,53 +64,57 @@ export default class CartConfirm extends React.Component {
 
 
     render() {
-        return (
-            <React.Fragment>
-                <div id="confirmorder-section-whole">
-                    <h1 id="cartTitle">Confirm Orders</h1>
-                    <Row>
-                        <Col xs={8}>
-                            {this.renderCart()}
-                        </Col>
-                        <Col xs={2}>
-                        </Col>
-                        <Col>
-                            <Form>
-                                <Form.Group controlId="exampleForm.ControlSelect1">
-                                    <Form.Label>Shipping</Form.Label>
-                                    <Form.Control
-                                        as="select"
-                                        name="shipping"
-                                        value={this.state.shipping}
-                                        onChange={(e) => {
-                                            this.setState({
-                                                [e.target.name]: e.target.value
-                                            })
-                                        }}
-                                    >
-                                        <option value="0">--Select--</option>
-                                        <option value="1" selected>SingPost</option>
-                                        <option value="2">Seller's Shipping</option>
-                                    </Form.Control>
-                                </Form.Group>
-                            </Form>
+        if (userid) {
+            return (
+                <React.Fragment>
+                    <div id="confirmorder-section-whole">
+                        <h1 id="cartTitle">Confirm Orders</h1>
+                        <Row>
+                            <Col xs={8}>
+                                {this.renderCart()}
+                            </Col>
+                            <Col xs={2}>
+                            </Col>
+                            <Col>
+                                <Form>
+                                    <Form.Group controlId="exampleForm.ControlSelect1">
+                                        <Form.Label>Shipping</Form.Label>
+                                        <Form.Control
+                                            as="select"
+                                            name="shipping"
+                                            value={this.state.shipping}
+                                            onChange={(e) => {
+                                                this.setState({
+                                                    [e.target.name]: e.target.value
+                                                })
+                                            }}
+                                        >
+                                            <option value="0">--Select--</option>
+                                            <option value="1" selected>SingPost</option>
+                                            <option value="2">Seller's Shipping</option>
+                                        </Form.Control>
+                                    </Form.Group>
+                                </Form>
 
-                            <Button 
-                            variant="outline-success"
-                            onClick={()=>{this.checkoutCluster()}}
-                            >
-                            Checkout
+                                <Button
+                                    variant="outline-success"
+                                    onClick={() => { this.checkoutCluster() }}
+                                >
+                                    Checkout
                             </Button>
 
-                            <Link to="/cart">
-                                <Button variant="outline-warning" size="sm">Back</Button>
-                            </Link>
+                                <Link to="/cart">
+                                    <Button variant="outline-warning" size="sm">Back</Button>
+                                </Link>
 
-                        </Col>
-                    </Row>
-                </div>
-            </React.Fragment>
-        )
+                            </Col>
+                        </Row>
+                    </div>
+                </React.Fragment>
+            )
+        } else if (!userid) {
+            window.location.assign("/unauthorize")
+        }
     }
 
 }

@@ -24,7 +24,7 @@ export default class Unauthorized extends React.Component {
                         <Col>
                             <div id="success-buttonCluster">
 
-                                <Link to="/">
+                                <Link to="/login">
                                     <Button variant="outline-info">Log in</Button>
                                 </Link>
 

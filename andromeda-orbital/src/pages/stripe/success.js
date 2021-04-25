@@ -45,28 +45,32 @@ export default function SuccessURL() {
         setTimeout(window.location.reload(), 1000)
     }
 
+    if (!userid) {
+        window.location.assign("/unauthorize")
 
-    return (
-        <React.Fragment>
-            {cart.map(c => (clearCart(c.telescope_id)))}
-            <div id="success-section">
-                <div>
-                    <p id="successTitle">Order Successful!</p>
-                    <p>Your Shipping number is: <br /><span id="successShipNum">{shippingNumGen(40)}</span></p>
+    } else {
+        return (
+            <React.Fragment>
+                {cart.map(c => (clearCart(c.telescope_id)))}
+                <div id="success-section">
+                    <div>
+                        <p id="successTitle">Order Successful!</p>
+                        <p>Your Shipping number is: <br /><span id="successShipNum">{shippingNumGen(40)}</span></p>
+                    </div>
+                    <div id="success-buttonCluster">
+
+                        <Link to={"/profile/" + userid}>
+                            <Button variant="outline-success">Check your Order</Button>
+                        </Link>
+
+                        <Link to="/">
+                            <Button variant="outline-warning">Back to Homepage</Button>
+                        </Link>
+
+                    </div>
                 </div>
-                <div id="success-buttonCluster">
 
-                    <Link to={"/profile/" + userid}>
-                        <Button variant="outline-success">Check your Order</Button>
-                    </Link>
-
-                    <Link to="/">
-                        <Button variant="outline-warning">Back to Homepage</Button>
-                    </Link>
-
-                </div>
-            </div>
-
-        </React.Fragment>
-    )
+            </React.Fragment>
+        )
+    }
 }
