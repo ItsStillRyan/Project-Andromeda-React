@@ -10,8 +10,9 @@ const userid = localStorage.getItem("id")
 
 export default function ErrorURL() {
 
-    if (userid) {
+    if (!userid) {
         window.location.assign("/unauthorize")
+
     } else {
         return (
             <React.Fragment>

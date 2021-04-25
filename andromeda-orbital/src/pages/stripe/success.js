@@ -10,11 +10,18 @@ const recentOrderId = localStorage.getItem("recentOrder")
 
 export default function SuccessURL() {
 
+    const [cart, setCart] = useState([])
+
     useEffect(async () => {
+        const cart =  await axios.get(BASE_URL + "/api/cart/" + userid)
+        setCart(cart.data)
+        
+
         await axios.post(BASE_URL + "/api/order/" + recentOrderId + "/status", {
             "status_id": "2"
         })
-        await axios.get(BASE_URL + "/api/cart/" + userid + "/removeMain")
+
+        
     }, [])
 
     if (!userid) {
@@ -33,10 +40,15 @@ export default function SuccessURL() {
         return result.join('');
     }
 
+    const clearCart = async (telescopeid) => {
+        const remove = await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/removeMain" )
+        setTimeout(window.location.reload(), 1000)
+    }
+
 
     return (
         <React.Fragment>
-            
+            {cart.map(c => (clearCart(c.telescope_id)))}
             <div id="success-section">
                 <div>
                     <p id="successTitle">Order Successful!</p>

@@ -34,18 +34,20 @@ function App() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
 
+    let secondTrigger
+
     if (userid) {
         const firstTrigger = setInterval(() => setShow(true), 840000)
+
+        secondTrigger = setInterval(async () => {
+            localStorage.clear()
+            const logout = await axios.get(BASE_URL + "/api/users/logout")
+        }, 850000)
     }
-
-    // const secondTrigger = setInterval(async () => {
-    //         localStorage.clear()
-    //         const logout = await axios.get(BASE_URL + "/api/users/logout")
-    //     }, 850000)
-
-    // if (show){
-    //     clearInterval(secondTrigger)
-    // }
+    
+    if (show){
+        clearInterval(secondTrigger)
+    }
 
     useEffect(() => {
         const profileFetch = async () => {

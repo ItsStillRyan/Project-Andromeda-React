@@ -64,8 +64,8 @@ class IndivListing extends React.Component {
     }
 
     async addToCart(telescopeid) {
-        const add = await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/add")
-        return add
+        await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/add")
+        await axios.get(BASE_URL + "/api/cart/" + userid + "/" + telescopeid + "/add2")
     }
 
  
