@@ -39,7 +39,7 @@ export default function Profile() {
                     <div id="storeSection">
                         <p className="profileTitles">Dashboard</p>
                         <Link to="/orders">
-                            <Button variant="outline-info">Orders</Button>
+                            <Button variant="outline-secondary">Orders</Button>
                         </Link>
                     </div>
 

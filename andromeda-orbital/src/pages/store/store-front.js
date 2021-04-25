@@ -14,12 +14,23 @@ export default function StoreFront() {
 
     const [product, setProduct] = useState([])
     const [search, setSearch] = useState("")
+    const [searchButtons, setSearchButtons] = useState("")
+    const [display, setDisplay] = useState("")
+
+
+    const ALL = ""
+    const BEGINNER = "Beginner"
+    const INTERMEDIATE = "Intermediate"
+    const ADVANCE = "Advanced"
+
 
 
     useEffect(async () => {
         const response = await axios.get(BASE_URL + "/api/telescope")
         setProduct(response.data)
+
     }, [])
+
 
     return (
         <React.Fragment>
@@ -38,63 +49,42 @@ export default function StoreFront() {
                 </Col>
             </Row>
 
-            <Row className="bottom-section justify-content-md-end">
-                <Col xs={2} className="filter-section">
-                    <div id="searchBar">
-                        <Form>
+            <div id="searchBar">
+                <Form>
+                    <Form.Row className="justify-content-md-center">
+                        <Col xs={9}>
                             <Form.Control
                                 type="text"
                                 name="search"
                                 placeholder="Search"
-                                value=""
+                                value={search}
                                 onChange={e => setSearch(e.target.value)}
                             />
-                        </Form>
-                    </div>
-                    <div id="userLevelFilter">
-                        <p className="filterTitle">User Level</p>
-                        <ul>
-                            <li><Button
-                                variant="outline-light"
+                        </Col>
 
-                            >Beginner</Button></li>
-                            <li>Intermediate</li>
-                            <li>Advance</li>
-                        </ul>
-                    </div>
-                    <div id="brandFilter">
-                        <p className="filterTitle">Brand</p>
-                        <ul>
-                            <li>Orion</li>
-                            <li>Celestron</li>
-                            <li>Meade</li>
-                        </ul>
-                    </div>
-                    <div id="imagingFilter">
-                        <p className="filterTitle">Best for Imaging</p>
-                        <ul>
-                            <li>Lunar & Planetary</li>
-                            <li>Deep Sky</li>
-                            <li>Solar, lunar, planetary & Messier objects</li>
-                        </ul>
-                    </div>
+                    </Form.Row>
 
-                </Col>
-                <Col xs={10} className="listing-section">
+                </Form>
+            </div>
+
+            <Row className="bottom-section justify-content-md-end">
+                <Col className="listing-section">
                     <CardDeck>
-                        {product.map(p => (
-                            <Link to={`/` + p.id}>
-                                <Card className="cardSize">
-                                    <Card.Img variant="top" src={p.image_url} />
-                                    <Card.Body>
-                                        <Card.Title>{p.name}</Card.Title>
-                                    </Card.Body>
-                                    <Card.Footer>
-                                        <small className="text-muted">SGD ${p.price}</small>
-                                    </Card.Footer>
-                                </Card>
-                            </Link>
-                        ))}
+                        {product.filter(t =>
+                            t.name.toLowerCase().includes(search.toLowerCase()))
+                            .map(p => (
+                                <Link to={`/` + p.id}>
+                                    <Card className="cardSize">
+                                        <Card.Img variant="top" src={p.image_url} />
+                                        <Card.Body>
+                                            <Card.Title>{p.name}</Card.Title>
+                                        </Card.Body>
+                                        <Card.Footer>
+                                            <small className="text-muted">SGD ${p.price}</small>
+                                        </Card.Footer>
+                                    </Card>
+                                </Link>
+                            ))}
                     </CardDeck>
                 </Col>
             </Row>
