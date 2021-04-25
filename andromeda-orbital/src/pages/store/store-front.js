@@ -42,12 +42,38 @@ export default function StoreFront() {
                     </div>
                 </Col>
 
-                <Col className="show-col">
+                <Col className="show-col justify-content-md-center">
                     <div className="title-section">
                         <p >Andromeda Orbital Store</p>
                     </div>
                 </Col>
             </Row>
+            <Row className="middle-section">
+                <Col align="center">
+                    <Button variant="outline-info">
+                        Telescopes
+                    </Button>
+                </Col > 
+                <Col align="center">
+                    <Button disabled variant="outline-danger">
+                        Coming Soon
+                    </Button >
+                </Col>
+                <Col align="center">
+                    <Button disabled variant="outline-danger">
+                        Coming Soon
+                    </Button>
+                </Col>
+                <Col align="center">
+                    <Button disabled variant="outline-danger">
+                        Coming Soon
+                    </Button>
+                </Col>
+            </Row>
+
+            <div id="productlist-Title">
+                <p>Telescopes</p>
+            </div>
 
             <div id="searchBar">
                 <Form>
@@ -61,11 +87,10 @@ export default function StoreFront() {
                                 onChange={e => setSearch(e.target.value)}
                             />
                         </Col>
-
                     </Form.Row>
-
                 </Form>
             </div>
+            
 
             <Row className="bottom-section justify-content-md-end">
                 <Col className="listing-section">

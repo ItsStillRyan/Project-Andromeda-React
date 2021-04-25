@@ -98,15 +98,34 @@
     margin: 20px;
 }
 
-
 /* Aside */
 .top-section{
 
 }
+.middle-section{
+border-top: 2px solid orange;
+border-bottom: 2px solid orange;
+
+}
+
 .bottom-section{
     
 }
-
+.middle-section Button{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 250px;
+    height: 150px;
+    font-family: Conthrax;
+    font-size: 1.2em;
+}
+#productlist-Title{
+    font-family: Conthrax;
+    color: white;
+    font-size: 3em;
+    text-align: center;
+    margin: 2%;
+}
 .logo-img{
     width: 300px;
     height: 300px;
@@ -125,13 +144,12 @@
     font-family: Conthrax;
 }
 .filter-section ul{
-    list-style-type: none; /* Remove bullets */
+    list-style-type: none;
 }
 
 #searchBar{
     padding-top: 20px;
     padding-bottom: 20px;
-    border-top: 2px solid orange;
 }
 
 
