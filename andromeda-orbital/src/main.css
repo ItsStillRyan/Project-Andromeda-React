@@ -75,15 +75,6 @@
     font-size: 4em;
     text-align: center;
 }
-
-.gitCol{
-    margin-top:5%;
-}
-
-.cateList li{
-    margin-top: 10px;
-}
-
 /* Main product Page */
 .product-img{
     height: 200px;
@@ -407,4 +398,16 @@
     font-size: 3em;
     text-align: center;
     padding: 5%;
+}
+
+/* UNAUTHORIZED */
+#unauthorized-section{
+    color:white;
+    font-family: Conthrax;
+    padding: 15%;
+        text-align: center;
+
+}
+#unauthorizedTitle{
+    font-size:2.5em;
 }

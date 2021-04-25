@@ -1,5 +1,5 @@
 ![logoREADME](/andromeda-orbital/READMEimages/logo.png)
-## A MERN stack with mongoDB project for Assignment 2
+## An E-commerce Website using mySQL database for Assignment 3
 ***
 
 ## **Context**
@@ -7,11 +7,6 @@ ___
 ### _Opening Statement & Summary_
 This assignment has required us, the programmers, to create an interactive website using a MERN(MongoDB, Express, React, Node) stack. Demonstrating my proficiency with the technologies.
 
-This project that I've created, within the set requirements, is essentially a a website forum for Astrophotographers, to share what they have found, get involved in discussions with each other and share their personal knowledge on things they have learned during the process.
-
-In talking about Space and its current age of technological advancements, its most recent success with Perseverance, the rover on Mars, and along with that, the constant successes with spaceX’s falcon 9 flights.
-
-As more of these are coming on to the front page of social media, the general topic and interest has been gaining a lot of traction. One of the avenues is Astrophotography. Capturing images of space bodies millions of lightyears away from where we are standing. I wanted to create a portal that holds this avenue and give a collaboration space for amateurs and veteran astrophotographers alike. So this is what the basis of my project is about.
 
 ___
 ### _Personal goals and expected user goals_
