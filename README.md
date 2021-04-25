@@ -1,77 +1,87 @@
-![logoREADME](/andromeda-orbital/READMEimages/logo.png)
+![logoREADME](/andromeda-orbital/READMEimages/logoREADME.png)
 ## An E-commerce Website using mySQL database for Assignment 3
 ***
 
 ## **Context**
 ___
 ### _Opening Statement & Summary_
-This assignment has required us, the programmers, to create an interactive website using a MERN(MongoDB, Express, React, Node) stack. Demonstrating my proficiency with the technologies.
+This assignment has required us, the programmers, to create an E-commerce store, using ReactJS for front-end, Express.JS for backend and mySQL for database storage. Demonstrating my proficiency with the technologies.
 
+As this is a continuation and extension from The Pegasus Index (Assignment 2), I've followed up in building an e-commerce section to the website to provide Astrophotography gear to users who are considering to go into the hobby, or experienced astrophotographers wanting to upgrade their current gear.
+
+As it stand right now, April 2021. The store only stocks Telescopes due to me not wanting to overwhelm myself with the amount of gear and its individual categories and specifications. 
+
+Regardless, further expansion to other products are on the To-Do list.
 
 ___
 ### _Personal goals and expected user goals_
-What I, as the programmer, hope to achieve is to provide a focused portal for like-minded individuals to share and discuss topics around this hobby.
+What I, as the programmer, hope to achieve is to provide a convienent and intuitive e-commerce store in the domain of Astrophotography.
 
-As the user, the goal is to have a place where I can share my findings, pictures and methods to other like-minded people in this hobby.
+As a new user, the goal is to have a place where I can find beginner friendly equipment to get started on this new hobby I am interested in try.
+
+As an experienced user, the goal is to have a place where I convienent find and purchase new upgrades to my current gear.
 ***
 ## Demo
 ___
 The live website can be access from this link:
-### [The Pegasus Index](https://wonderful-joliot-895ffd.netlify.app)
+### [Andromeda Orbital Station]("")
 ***
 ## **Content**
 ___
 ### **Site Map**
-![sitemap](project-pegasus/src/images/README/Sitemap.png)
-### **Landing Page**
-* Main landing page
-* Category tab
+![sitemap](/andromeda-orbital/READMEimages/sitemap.png)
 
-### **Categories**
-  * Galaxies
-  * Planets
-  * Stars
-  * Nebulae
-  * Man-made
-  * Other
-
-### **Individual post page**
-
-
-### **Getting Started**
-* Uploading your first post
-* Getting started with astrophotography
-
-### **Uploads**
-* Upload post form
-
+### **Store Front**
+### **Telescopes**
+### **Individual Item**
+### **Login/ Register**
+### **Profile/ Past Orders**
+### **Cart**
+### **Confirm Orders**
+### **Strip**
+### **Success/Error**
 ___
-### Landing page
-The main logo along with the title will be the first thing user sees upon entering the page. Scrolling down, there will be a small content divider showing a small glimps on what the website is about. Further down, there is an interactive category list, displaying all 6 categories in image buttons.
+### Store Front
 
-### Categories page
-This constitutes all 6 categories as they are of the same layout.
-Upon entering, you'll be greeted with the title of the respective category and a small description about it. A filter bar is present to filter only by title. The contents of all the posts will follow up under the filter bar. All posts will be displayed in cards, a preview of the photograph along with the title and the astrophotographer.
 
-### Individual post page
+### Telescopes
+
+
+### Individual Item
 This page will consist of the post that the user has chosen to engage on. All the details will be shown in the order of 
-* Full picture
-* Title
-* Poster's Name
-* Location
-* Equipment Used
-* Aquisitions and Processing
-* Comments
+* Picture
+* Name
+* Price
+* Stock
+* Brand
+* Full Specs 
+  * Description
+  * User Level
+  * Weight
+  * Imaging Type
+  * Optical Design
+  * Aperture
+  * f/Ratio 
+  * Category
+  
 
-Here, people and engage in discussions with the post in the comments section.
 
-### Getting Started page
-Here, Users can learn how to post their own pictures and what each form field works/require. 
 
-New users can also come here to get started on astrophotography and start their research on the hobby.
+### Login/ Register
 
-### Uploads page
-This page is for users who wants to upload into the index. All forms in here are required except the location. 
+
+### Profile/ Past Orders
+
+
+### Confirm Orders
+
+
+### Stripe
+
+
+### Success/Error
+
+
 
 ### Responsiveness
 This website is meant to only be used on a computer system. Any monitor resolution above: 1366 x 786
