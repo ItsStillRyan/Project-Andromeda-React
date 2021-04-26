@@ -1,4 +1,4 @@
 export default{
-    'BASE_URL': 'https://3000-red-hare-zjct2oid.ws-us03.gitpod.io',
+    'BASE_URL': 'https://rtwz-andromeda-orbital.herokuapp.com',
     'REFRESH_TOKEN_INTERVAL': 15*60*1000
 }
