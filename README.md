@@ -118,7 +118,7 @@ All coding has been done in **Gitpod** IDE, including a seperate repository as a
 
 #### **Db-Migrate** https://db-migrate.readthedocs.io/en/latest/
 
-#### **Bookshelf** https://bookshelfjs.org/
+#### **Bookshelf ORM** https://bookshelfjs.org/
 
 #### **Caolan Forms** https://github.com/caolan/forms
 
@@ -200,18 +200,102 @@ ___
 
         git push heroku master
 
-9. We need to duplicate the content of the .env file inside the config variables section of Heroku.
+9. We need to use an external database, hosted on an external server, for our project. Heroku itself offers some database hosting services, such as Postgres and ClearDB. 
 
-    Go to Heroku and look for the app you just deployed. Then click on Settings.
+    In the terminal, type in:
 
-    Next, click on Reveal Config Vars
+        heroku addons:create heroku-postgresql
 
-    After which, add in MONGO_URL, and the connection URL from your .env file:
+10. When you are done, go to Heroku, and open your newly created application. Click on settings, and then "Reveal Config"
 
-10. Run the app
+    You should be able to see a DATABASE_URL setting
 
-    From your Heroku project panel, click on the button that says Open App. Test if your app is working.
+11. Make a copy of your .env file.
 
+    Open up Notepad, and paste in the DATABASE_URL obtained from the previous step
+
+        The syntax is postgres://<user>:<password>@<host>/<database_name>?reconnect = true
+
+        Example:
+        postgres://b80f8d428xxxxx:f48exxxx@us-cdbr-iron-east-02.cleardb.net/heroku_58632fb6debxxxx?reconnect=true
+
+        # host will be: us-cdbr-iron-east-02.cleardb.net
+
+        # user will be: B80f8d428xxxxx
+
+        # password will be: F48exxxx
+
+        # database_name will be: heroku_58632fb6debxxxx
+
+12. In your .env file, change the setting DB_DRIVER to postgres
+
+    Update your .env file with the host, user, password and database name obtained from parsing the syntax above:
+
+        DB_DRIVER=postgres
+        DB_USER=nzabcdefghkah
+        DB_PASSWORD=84f1d63eb61938670f2efa4aaaaaaaf6b725eeed2e19356e11db92a1
+        DB_DATABASE=d1ldaaaa275
+        DB_HOST=ec2-54-196-33-23.compute-1.amazonaws.com
+
+13. Finally, install postgres with:
+        yarn add pg
+        yarn add db-migrate-pg
+
+14. Change your database.json to read as below:
+
+        {
+            "dev": {
+                "driver": {"ENV" :"DB_DRIVER"},
+                "user": {"ENV": "DB_USER" },
+                "password": {"ENV":"DB_PASSWORD"},
+                "database": {"ENV":"DB_DATABASE"},
+                "host": {"ENV":"DB_HOST"},
+                "ssl": {
+                    "rejectUnauthorized": false
+                }
+            }
+        }
+
+    Do the same for bookshelf/index.js
+
+        const knex = require('knex')({
+            'client': process.env.DB_DRIVER,
+            'connection': {
+                'user': process.env.DB_USER,
+                'password': process.env.DB_PASSWORD,
+                'database': process.env.DB_DATABASE,
+                'host':process.env.DB_HOST,
+                'ssl': {
+                    'rejectUnauthorized': false
+                }
+            }
+        })
+
+    ### **Do note that since we have switched to a different database, it is pristine and does not have any tables. Your original data are still on your local host, and you can see them back once you switch the DB settings back to MySQL**
+
+
+15. In the terminal, type in:
+        
+        ./db-migrate.sh up
+
+
+16. Once more, go to your application in Heroku and copy over the various settings from your .env file over. 
+
+    Remember to do a commit and push to Heroku now since we changed the codes 
+
+17.    Installing DB BEAVER
+
+        We need a software that allows us to add in new categories, tags and etc, and one way of connecting to the new Postgres database that we have is Dbeaver.  Head off to https://dbeaver.io/ to download the community version of Dbeaver and install that on your computer.
+
+        After downloading and launching DB-Beaver.
+
+        1. From the pop  up window, select Postgres
+        2. It will then request to download some necessary files. Allow the operation.
+        3. In the window that shows up next, fill in the Postgres database you obtained in step 12. Once finished, click on the _Finish_ button.
+        4. The new connection will appear on the left hand side window. Double click on it. You will be able to see all your tables once you collapse the schemas then publics folder:
+
+
+18. Go to Stripe, and add in a new endpoint for https::heroku url/checkout/process_payment, and replace the old endpoint secret with the new one in your Heroku settings.
 
 
 ___
@@ -228,13 +312,10 @@ ___
 ***
 ## Credits
 ___
-All the following has been taken from Reddit, in the subreddit r/Astrophotography.
-* All uploaded posts
-* Getting started information page
-* Landing page categories button pictures
-
-Main logo pegasus taken from https://dribbble.com/shots/3037025-Constellations-Pegasus
+All the following has been taken from: https://www.telescope.com/All-Telescopes/2162.home
+* All uploaded products
+* Product details
 
 Deployment Steps taken with courtesy of Paul Chor
 
-Layout for most UIUX taken from both https://react-bootstrap.github.io/ & https://mdbootstrap.com/ templates
+Layout for most UIUX taken from both https://react-bootstrap.github.io/
