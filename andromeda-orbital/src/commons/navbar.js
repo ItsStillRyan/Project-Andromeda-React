@@ -27,16 +27,16 @@ export default function NavbarMain() {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
 
-                            <Nav.Link>
-                                <a href={pegasusURL}>
-                                    <img
-                                        src={logo}
-                                        width="60"
-                                        height="60"
-                                        className="d-inline-block align-top"
-                                        alt="Andromeda Logo"
-                                    />
-                                </a>
+                            <Nav.Link href={pegasusURL}>
+
+                                <img
+                                    src={logo}
+                                    width="60"
+                                    height="60"
+                                    className="d-inline-block align-top"
+                                    alt="Andromeda Logo"
+                                />
+
                             </Nav.Link>
 
                             <Navbar.Text>
