@@ -32,10 +32,10 @@ ___
 ![sitemap](/andromeda-orbital/READMEimages/sitemap.png)
 ___
 ### Store Front
-
+Here is where the Users/Customer will land upon entering the website. Store title and logo, along with 2 seperate navigation types and the whole product list will be displayed and is the first point of contact. From there, the Users/Customer will be able to use the NavBar to go into the log in page, or use the category buttons to browse their desired products.
 
 ### Telescopes
-
+A full list of the telescope inventory will be rendered here, in cards. Cards will display the image, the title and the price. All cards will be clickable to which will take the User/Customer to its individual detailed product page.
 
 ### Individual Item
 This page will consist of the post that the user has chosen to engage on. All the details will be shown in the order of 
@@ -54,23 +54,25 @@ This page will consist of the post that the user has chosen to engage on. All th
   * f/Ratio 
   * Category
   
-
-
-
 ### Login/ Register
-
+Users/Customer that plan to purchase products from this e-commerce store will be required to register an account for checkout purposes. In this login page, Users/Customer can login and/or register for an account if they haven't already. Displayed in a group of forms. Users/Customer will be asked to fill in their Personal and Profile details before being able to login and unlock further functionalities.
 
 ### Profile/ Past Orders
+Upon logging in, Users/Customer will be redirected to their profile page, to which will display their informations and a navigation section to their orders page. Users/Customer will be able to edit and update their details as and when they choose, as well as a logout button. In the Orders page, users will be able to display their past order for tracking purposes. 
 
+### Cart
+Users/Customer that has added items into their carts will have them displayed in this page. Users/Customer will be able ot update the quantity of the item they are purchasing and will be able to check out as and when they decide to purchase said items.
 
 ### Confirm Orders
-
+After the Users/Customer checks out from the Cart page, they will be redirected to the Confirm Order page where they will see the brief description of the items they want to purchase. Also, Users/Customer are required to choose which shipping company they want to use. As of April 2021, the only options for shipping are _Singpost_ and _Seller's Shipping_.
+After confirming and selecting on the shipping company, Users/Customer will be able to properly checkout and be redirected to the strip checkout page.
 
 ### Stripe
-
+Here, Users/Customer will be required to enter their billing information for puchase. This page is fully controled by Stripe. After the success of the purchase, Users/Customer will be redirected to a Success URL. Whereas, if the Users/Customer backs out from the payment page, they will be redirected to an Error URL.
 
 ### Success/Error
-
+In the Success URL, Users/Customer will be given a shipping number, as well as the options to be redirect to their profile page or the store front page.
+In the Error URL, Users/Customer will have the option to go back to their Cart to try to check out again or back to the store front page if they choose to try again at a later time.
 
 
 ### Responsiveness
