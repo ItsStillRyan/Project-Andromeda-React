@@ -30,16 +30,6 @@ The live website can be access from this link:
 ___
 ### **Site Map**
 ![sitemap](/andromeda-orbital/READMEimages/sitemap.png)
-
-### **Store Front**
-### **Telescopes**
-### **Individual Item**
-### **Login/ Register**
-### **Profile/ Past Orders**
-### **Cart**
-### **Confirm Orders**
-### **Strip**
-### **Success/Error**
 ___
 ### Store Front
 
@@ -88,11 +78,16 @@ This website is meant to only be used on a computer system. Any monitor resoluti
 
 ### Navigation
 This website employs the use of the Three-click rule for optimal UIUX.
+___
+### **Logical Schema**
+![LS](/andromeda-orbital/READMEimages/LS.png)
+
+
 ***
 ## UI and Design Choices
 ___
-#### **Space/futuristic themed. Around a main focus**
-As this website revolves around the topic of space, I'm going for a futuristic sci-fi look. Using a constellation map in the background, it cuts through the mundane solid color. 
+#### **Space/futuristic themed, fictional. Around a main focus**
+Following the style of The Pegasus Index, space is still the main theme of the website. I've decided to go with the fictional approach to a "space store", taking inspiration from Space Flight Simulators such as Elite: Dangerous and Star Citizen. 
 
 #### **Color choices and Fonts**
  Using darker complementary colors like dark blue and its other shades. Contrasting it with yellow and turquiose in only my main logo just to make it stand out from the dark.
@@ -104,26 +99,32 @@ As this website revolves around the topic of space, I'm going for a futuristic s
 
 ___
 ### _Console.log Checks_
-Axios check - 
 
-        Database Active, Mongo Connected
-        Database Active, Mongo Connected
-        Database Active, Mongo Connected
-        Database Active, Main Function Running
+### _ARC (Advanced REST client) Tests_
+
 
 ***
 ## Technologies Used
-___
-As with the requirements of this project, it is done within the limits of **MongoDB, Express, React, Node**.
+As with the requirements of this project, it is done within the limits of **mySQL, Express, React, Node**.
 All coding has been done in **Gitpod** IDE, including a seperate repository as a testing workbench.
 
 **I also employed the use of external frameworks such as:**
 
-#### **REACT Bootstrap in 2 kinds** https://react-bootstrap.github.io/ & https://mdbootstrap.com/
+#### **REACT Bootstrap ** https://react-bootstrap.github.io/ 
 
 #### **Axios** https://github.com/axios/axios
 
-**Tools involved during development:**
+#### **Db-Migrate** https://db-migrate.readthedocs.io/en/latest/
+
+#### **Bookshelf** https://bookshelfjs.org/
+
+#### **Caolan Forms** https://github.com/caolan/forms
+
+___
+## **Tools involved during development:**
+
+#### **SqlDBM** https://sqldbm.com/Home/
+Using SqlDBM for my Logical Schema
 
 #### **Drawio** https://app.diagrams.net/
 Using Drawio for my Site map
@@ -132,9 +133,9 @@ Using Drawio for my Site map
 All graphics have been done photoshop
 
 #### **DAFONT** https://www.dafont.com/
-Fonts that are in the game was found and downloaded here
+Fonts that are in the website was found and downloaded here
 
-#### **MongoDB** https://www.mongodb.com/
+#### **mySQL/PostgreSQL** 
 Main database use
 
 #### **Netlify** https://app.netlify.com/
@@ -146,11 +147,11 @@ For Back end deployment
 
 ## Future development plans and Existing Bugs
 ___
-1. Mainly looking into UI changes. Loading screen in particular could add more immersion.
+1. With the main focus of this assignment in the backend, the UI in my opinion is rather lack-lustered. There is very much the intent to rethink and redo the UI of the page.
 
-2. Filtering. I am aware of the lack of filtering in this project so this would be one of the top priority in the list to tackle and implement.
+2. I want to normalise using functional programming, right now the REACT section is a mix between class components and functional components. Mixing both technologies has proven to be difficult to work with since both are not compatible.
 
-3. A better use of REACT.JS without doing a windows.reload for certain pages. 
+3. Further understanding and improvements to the backend codes.  
 ***
 ## Deployment
 ___
