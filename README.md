@@ -24,7 +24,7 @@ As an experienced user, the goal is to have a place where I convienent find and 
 ## Demo
 ___
 The live website can be access from this link:
-### [Andromeda Orbital Station]("https://priceless-golick-3e1423.netlify.app/")
+### [Andromeda Orbital Station](https://priceless-golick-3e1423.netlify.app/)
 ***
 ## **Content**
 ___
