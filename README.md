@@ -76,7 +76,7 @@ In the Error URL, Users/Customer will have the option to go back to their Cart t
 
 
 ### Responsiveness
-This website is meant to only be used on a computer system. Any monitor resolution above: 1366 x 786
+Currently, this webpage is responsive to both a standard computer monitor horizonal layout and a 6.4inch mobile phone.
 
 ### Navigation
 This website employs the use of the Three-click rule for optimal UIUX.
