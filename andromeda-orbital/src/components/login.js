@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import config from "../../src/config";
-import { Form, Button, Col } from 'react-bootstrap'
+import { Form, Button, Col, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 
@@ -47,7 +47,7 @@ export default function LoginComp() {
         <React.Fragment>
 
             <Col className="show-col">
-                <div className="loginForm-section">
+                <Container className="loginForm-section">
 
                     <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
@@ -85,7 +85,7 @@ export default function LoginComp() {
                             variant="outline-warning"
                         >Log in</Button>
                     </Form>
-                </div>
+                </Container>
                 <div className="registerHere-section">
                     <p>Don't have an account? <Link to="/register">Register Here!</Link></p>
                 </div>

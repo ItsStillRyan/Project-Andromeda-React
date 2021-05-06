@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Form, Button, Row, Col, Modal } from 'react-bootstrap'
+import { Form, Button, Row, Col, Modal, Container } from 'react-bootstrap'
 import config from "../../config";
 import { Link } from 'react-router-dom'
 
@@ -12,7 +12,7 @@ export default class Cart extends React.Component {
     state = {
         cart: [],
         quantity: "",
-        show:false
+        show: false
     }
 
     async componentDidMount() {
@@ -62,7 +62,7 @@ export default class Cart extends React.Component {
             accum.push(
                 <Row className="indivCart" >
                     <Col xs={2} className="cartImg">
-                        <img src={c.telescope.image_url} alt={c.telescope.name}/>
+                        <img src={c.telescope.image_url} alt={c.telescope.name} />
                     </Col>
                     <Col xs={6} className="cartName">
                         <p>{c.telescope.name}</p>
@@ -72,9 +72,9 @@ export default class Cart extends React.Component {
                         <Button
                             variant="outline-warning"
                             size="sm"
-                            onClick={() => { 
-                                this.removeItem(c.telescope.id) 
-                                this.setState({show:true});
+                            onClick={() => {
+                                this.removeItem(c.telescope.id)
+                                this.setState({ show: true });
                             }}
                         >
                             <i className="far fa-trash-alt"></i>
@@ -117,7 +117,7 @@ export default class Cart extends React.Component {
         return (
             <React.Fragment>
 
-                <Modal show={this.state.show} onHide={() =>{this.setState({show:false});}} centered>
+                <Modal show={this.state.show} onHide={() => { this.setState({ show: false }); }} centered>
                     <Modal.Header closeButton>
                         <Modal.Title>Deleted from cart</Modal.Title>
                     </Modal.Header>
@@ -125,17 +125,22 @@ export default class Cart extends React.Component {
 
                 <div id="cart-section-whole">
                     <h1 id="cartTitle">Cart</h1>
-                    <Row>
-                        <Col>
-                            {this.renderCart()}
-                        </Col>
-                        <Col xs={2} id="checkout-section">
-                            <p>Total Price: <br /> SGD ${this.calculateTotalPrice()}</p>
-                            <Link to="/confirmOrders">
-                                <Button variant="outline-success">Check out</Button>
-                            </Link>
-                        </Col>
-                    </Row>
+                    <Container>
+                        <Row>
+                            <Col>
+                                {this.renderCart()}
+                            </Col>
+                            
+                        </Row>
+                        <Row id="checkout-section">
+                            <Col xs={2} >
+                                <p>Total Price: <br /> SGD ${this.calculateTotalPrice()}</p>
+                                <Link to="/confirmOrders">
+                                    <Button variant="outline-success" >Check out</Button>
+                                </Link>
+                            </Col>
+                        </Row>
+                    </Container>
                 </div>
             </React.Fragment>
         )

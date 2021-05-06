@@ -1,413 +1,590 @@
-
-@font-face{
-    font-family: 'Conthrax';
-    src: local('Conthrax'), url(./fonts/conthrax-sb.ttf);
+@font-face {
+	font-family: 'Conthrax';
+	src: local('Conthrax'), url(./fonts/conthrax-sb.ttf);
 }
 
-.bodyT{
-    background-image: url("images/background.jpg");
-    background-size: auto;
-    background-attachment: fixed;
+.bodyT {
+	background-image: url("images/background.jpg");
+	background-size: auto;
+	background-attachment: fixed;
     min-height: 100%;
-    min-width: 1366px;
-
-
+    overflow-x: hidden;
 }
-.divContain{
-    width: 95%;
-    margin: auto;
+.divContain {
+	width: 95%;
+	margin: auto;
 }
-.backgroundBody{
-    background-color: rgba(0, 0, 0, 0.4);
+.backgroundBody {
+	background-color: rgba(0, 0, 0, 0.4);
 }
-
 /* EXTRAS */
 
 /* .show-col{
     border: 2px solid orange;
 } */
 
-.h-divider{
-    margin-top:30px;
-    margin-bottom:30px;
-    height:1px;
-    width:100%;
-    border-top:3px solid white;
+.h-divider {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	height: 1px;
+	width: 100%;
+	border-top: 3px solid white;
 }
-.h-divider2{
-    margin-top:30px;
-    margin-bottom:30px;
-    height:1px;
-    width:100%;
-    border-top:2px solid white;
+.h-divider2 {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	height: 1px;
+	width: 100%;
+	border-top: 2px solid white;
 }
-
 /* navbar css in navbar.js */
-.navLink{
-    color: white;
-    font-size:1.2em;
-    font-family: Conthrax;
-    margin-top: 15px;
-}
-.navLink2{
-    color: white;
-    font-size:1.2em;
-    font-family: Conthrax;
-}
-.navLinkIcon{
-    color: white;
-    font-size:2em;
-    font-family: Conthrax;
-}
-.nav-divider{
-    color: white;
-    font-size:2.5em;
-}
 
-
+.navLink {
+	color: white;
+	font-size: 1.2em;
+	font-family: Conthrax;
+	margin-top: 15px;
+}
+.navLink2 {
+	color: white;
+	font-size: 1.2em;
+	font-family: Conthrax;
+}
+.navLinkIcon {
+	color: white;
+	font-size: 2em;
+	font-family: Conthrax;
+}
+.nav-divider {
+	color: white;
+	font-size: 2.5em;
+}
 /* footer css in footer.js */
-.footerWholeSize{
-    margin-top: 3%;
-    margin-bottom: 3%;
-}
 
-.gitIcon{
-    font-size: 4em;
-    text-align: center;
+.footerWholeSize {
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+.gitIcon {
+	font-size: 4em;
+	text-align: center;
 }
 /* Main product Page */
-.product-img{
-    height: 200px;
-}
 
-.cardSize{
-    width: 250px;
-    height: 400px;
-    margin: 30px;
+.product-img {
+	height: 200px;
 }
-.cardCol{
-    margin: 20px;
+.cardSize {
+	width: 250px;
+	height: 400px;
+	margin: 30px;
 }
-.priceTag{
-    color: black;
-    font-size: 1em;
+.cardCol {
+	margin: 20px;
+}
+.priceTag {
+	color: black;
+	font-size: 1em;
 }
 /* Aside */
-.top-section {
-}
-.middle-section{
-    border-top: 2px solid orange;
-    border-bottom: 2px solid orange;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    margin-top: 3%;
-    margin-bottom:3%;
 
+.top-section {}
+.middle-section {
+	border-top: 2px solid orange;
+	border-bottom: 2px solid orange;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	margin-top: 3%;
+	margin-bottom: 3%;
 }
-.bottom-section{
-    padding-bottom: 10%;
+.bottom-section {
+	padding-bottom: 10%;
 }
-.middle-section Button{
-    margin-top: 40px;
-    margin-bottom: 40px;
-    width: 250px;
-    height: 150px;
-    font-family: Conthrax;
-    font-size: 1.2em;
+.middle-section Button {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	width: 250px;
+	height: 150px;
+	font-family: Conthrax;
+	font-size: 1.2em;
 }
-#productlist-Title{
-    font-family: Conthrax;
-    color: white;
-    font-size: 3em;
-    text-align: center;
-    margin: 2%;
+#productlist-Title {
+	font-family: Conthrax;
+	color: white;
+	font-size: 3em;
+	text-align: center;
+	margin: 2%;
 }
-.logo-img{
-    width: 300px;
-    height: 300px;
-    padding: 30px;
+.logo-img {
+	width: 300px;
+	height: 300px;
+	padding: 30px;
 }
-.title-section p{
-    font-family: Conthrax;
-    color: white;
-    font-size: 3em;
-    padding-top: 2em;
+.title-section p {
+	font-family: Conthrax;
+	color: white;
+	font-size: 3em;
+	padding-top: 2em;
 }
-.filter-section{
-    border-right: 2px solid white;
-    height: 100%;
-    color:white;
-    font-family: Conthrax;
+.filter-section {
+	border-right: 2px solid white;
+	height: 100%;
+	color: white;
+	font-family: Conthrax;
 }
-.filter-section ul{
-    list-style-type: none;
+.filter-section ul {
+	list-style-type: none;
 }
-
-#searchBar{
-    padding-top: 20px;
-    padding-bottom: 20px;
+#searchBar {
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
-
-
 /* LOGIN PAGE */
-.fulllogin-section{
-    padding-top: 10%;
-    padding-bottom: 10%;
+
+.fulllogin-section {
+	padding-top: 10%;
+	padding-bottom: 10%;
 }
-.loginForm-section{
-    width: 400px;
-    margin-top: 15%;
-    
+.loginForm-section {
+	width: 400px;
+	margin-top: 15%;
 }
-.login-label{
-    color:white;
-    font-family: Conthrax;
+.login-label {
+	color: white;
+	font-family: Conthrax;
 }
-.login-label2{
-    color:black;
-    font-family: Conthrax;
+.login-label2 {
+	color: black;
+	font-family: Conthrax;
 }
-.login-logo-img{
-    height: 300px;
-    margin-left: 50%;
-    margin-bottom: 5%;
-    transform: translate(-50%);
+.login-logo-img {
+	height: 300px;
+	margin-left: 50%;
+	margin-bottom: 5%;
+	transform: translate(-50%);
 }
 .logo-signature p {
-    color:white;
-    font-family: Conthrax;
-    font-size: 1.5em;
-    text-align: center;
+	color: white;
+	font-family: Conthrax;
+	font-size: 1.5em;
+	text-align: center;
 }
-.registerHere-section{
-    margin-top: 20px;
-    color:white;
-    font-family: Conthrax;
-    font-size: 1em;
+.registerHere-section {
+	margin-top: 20px;
+	color: white;
+	font-family: Conthrax;
+	font-size: 1em;
 }
-
 /* Individual Listing */
-.backListingContain{
-    padding-top:5%;
-    padding-bottom:5%;
-}
-.listingContain{
-    border: 1px solid orange;
-    width: 95%;
-    margin: auto;
-}
 
-.indivImgCol img{
-    margin-top: 10%;
-    height: 400px;
+.backListingContain {
+	padding-top: 5%;
+	padding-bottom: 5%;
 }
-.indivQuickDetailsCol{
-    border-left: 2px solid orange;
-    border-right: 2px solid orange;
-    color: white;
-    font-family: Conthrax;
-    height: 500px;
+.listingContain {
+	border: 1px solid orange;
+	width: 95%;
+	margin: auto;
 }
-#indivTitle{
-    background-color: rgba(0, 0, 0, 0.2);
-    padding-top: 15px;
-    padding-bottom: 15px;
-    text-align: center;
-    font-size: 1.7em;
-    margin-left:5px;
-    margin-right:5px;
+.indivImgCol img {
+	margin-top: 10%;
+	height: 400px;
 }
-.indivSubDetailTitle{
-    margin-top: 70px;
-    margin-left: 10px;
+.indivQuickDetailsCol {
+	border-left: 2px solid orange;
+	border-right: 2px solid orange;
+	color: white;
+	font-family: Conthrax;
+	height: 500px;
 }
-.indivSubDetail{
-    background-color: rgba(0, 0, 0, 0.2);
-    padding-top: 10px;
-    padding-bottom:10px;
-    text-align: center;
-    font-size: 1.4em;
-    
+#indivTitle {
+	background-color: rgba(0, 0, 0, 0.2);
+	padding-top: 15px;
+	padding-bottom: 15px;
+	text-align: center;
+	font-size: 1.7em;
+	margin-left: 5px;
+	margin-right: 5px;
 }
-
-.indivAddCartCol{
-    height: 500px;
-    color: white;
-    font-family: Conthrax;
-    text-align: right;
-    padding: 5%;
-
-
+.indivSubDetailTitle {
+	margin-top: 70px;
+	margin-left: 10px;
 }
-#indivPrice{
-    font-size: 1.8em;
+.indivSubDetail {
+	background-color: rgba(0, 0, 0, 0.2);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	font-size: 1.4em;
 }
-#indivStoreName{
-    font-size: 1.5em;
+.indivAddCartCol {
+	height: 500px;
+	color: white;
+	font-family: Conthrax;
+	text-align: right;
+	padding: 5%;
 }
-
-.indivFullDetailsSection{
-    border-top: 2px solid orange;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: white;
-    font-family: Conthrax;
-    
+#indivPrice {
+	font-size: 1.8em;
 }
-#indivFullSpecTitle{
-    font-size: 1.5em;
-    margin: 15px;
+#indivStoreName {
+	font-size: 1.5em;
 }
-.indivTableTd td{
-    color:white;
-    border-bottom: 1px solid white;
-    font-size: 1.2em;
-
+.indivFullDetailsSection {
+	border-top: 2px solid orange;
+	background-color: rgba(0, 0, 0, 0.2);
+	color: white;
+	font-family: Conthrax;
 }
-#indivSpecDesc{
-    color:white;
-    font-size: 1em;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-bottom: 30px;
-    margin-left: 15px;
-    margin-right: 15px;
-    line-height: 1.7em;
+#indivFullSpecTitle {
+	font-size: 1.5em;
+	margin: 15px;
 }
-.indivTablelink{
-    font-size: 0.7em;
-    margin-right: 15px;
+.indivTableTd td {
+	color: white;
+	border-bottom: 1px solid white;
+	font-size: 1.2em;
 }
-
+#indivSpecDesc {
+	color: white;
+	font-size: 1em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	margin-bottom: 30px;
+	margin-left: 15px;
+	margin-right: 15px;
+	line-height: 1.7em;
+}
+.indivTablelink {
+	font-size: 0.7em;
+	margin-right: 15px;
+}
 /* PROFILE PAGE */
-#profileRow{
-    border-top: 1px solid white;
-}
-#storeSection{
-    margin-bottom: 3%;
-}
-.profileSection{
-    color:white;
-    padding: 30px;
-}
-.profileSection td{
-    color:white;
-    font-size: 1.2em;
-}
-.profileTitles{
-    color: white;
-    font-family: Conthrax;
-    font-size: 1.5em;
-    margin-top: 3%;
-    margin-bottom: 2%;
-}
-.profileButton{
-    margin:3%;
-    text-align: center;
-}
 
+#profileRow {
+	border-top: 1px solid white;
+}
+#storeSection {
+	margin-bottom: 3%;
+}
+.profileSection {
+	color: white;
+	padding: 30px;
+}
+.profileSection td {
+	color: white;
+	font-size: 1.2em;
+}
+.profileTitles {
+	color: white;
+	font-family: Conthrax;
+	font-size: 1.5em;
+	margin-top: 3%;
+	margin-bottom: 2%;
+}
+.profileButton {
+	margin: 3%;
+	text-align: center;
+}
 /* CART */
-#cart-section-whole{
-    padding: 30px;
-    color: white;
-    font-family: Conthrax;
-}
-#cartTitle{
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
 
-#checkout-section{
-    margin-left: 20px;
-    border-left: 2px solid orange;
+#cart-section-whole {
+	padding: 30px;
+	color: white;
+	font-family: Conthrax;
 }
-#checkout-section Button{
-    margin-top: 50px;
+#cartTitle {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 40px;
 }
-.indivCart{
-    margin-bottom: 50px;
+#checkout-section {
+	margin-left: 20px;
+	border-top: 2px solid orange;
 }
-.cartImg img{
-    width: 150px;
-    height: 150px;
+#checkout-section Button {
+	margin-top: 50px;
+}
+.indivCart {
+	margin-bottom: 50px;
+}
+.cartImg img {
+	width: 150px;
+	height: 150px;
 }
 .cartPrice i {
-    font-size: 1.5em;
+	font-size: 1.5em;
 }
-
 /* CONFIRM ORDER*/
-#confirmorder-section-whole{
-    padding: 30px;
-    color: white;
-    font-family: Conthrax;
-}
 
+#confirmorder-section-whole {
+	padding: 30px;
+	color: white;
+	font-family: Conthrax;
+}
 /* SUCCESS URL */
-#success-section{
-    color: white;
-    font-family: Conthrax;
-    text-align: center;
-    padding: 10%;
-}
-#successTitle{
-    font-size: 3em;
-}
-#successShipNum{
-    color: orange;
-}
-#success-buttonCluster{
-    margin-top: 10%;
-}
 
+#success-section {
+	color: white;
+	font-family: Conthrax;
+	text-align: center;
+	padding: 10%;
+}
+#successTitle {
+	font-size: 3em;
+}
+#successShipNum {
+	color: orange;
+}
+#success-buttonCluster {
+	margin-top: 10%;
+}
 /* ERROR URL */
-#error-section{
-    color: white;
-    font-family: Conthrax;
-    text-align: center;
-    padding: 10%;
-}
-#errorTitle{
-    font-size: 3em;
-}
-#successShipNum{
-    color: orange;
-}
-#success-buttonCluster{
-    margin-top: 10%;
-}
 
+#error-section {
+	color: white;
+	font-family: Conthrax;
+	text-align: center;
+	padding: 10%;
+}
+#errorTitle {
+	font-size: 3em;
+}
+#successShipNum {
+	color: orange;
+}
+#success-buttonCluster {
+	margin-top: 10%;
+}
 /* ORDERS */
-#orderTable-section th{
-    color: white;
-}
-#orderTable-section td{
-    color: white;
-}
-#orderButtonCluster{
-    text-align: center;
-    padding: 5%;
-}
 
+#orderTable-section th {
+	color: white;
+}
+#orderTable-section td {
+	color: white;
+}
+#orderButtonCluster {
+	text-align: center;
+	padding: 5%;
+}
 /* TELESCOPES */
-#telescopesWrap{
-    width: 100%;
-    padding-bottom: 10%;
-}
-#telescopelist-Title{
-    color:white;
-    font-family: Conthrax;
-    font-size: 3em;
-    text-align: center;
-    padding: 5%;
-}
 
+#telescopesWrap {
+	width: 100%;
+	padding-bottom: 10%;
+}
+#telescopelist-Title {
+	color: white;
+	font-family: Conthrax;
+	font-size: 3em;
+	text-align: center;
+	padding: 5%;
+}
 /* UNAUTHORIZED */
-#unauthorized-section{
-    color:white;
-    font-family: Conthrax;
-    padding: 15%;
-    text-align: center;
+
+#unauthorized-section {
+	color: white;
+	font-family: Conthrax;
+	padding: 15%;
+	text-align: center;
+}
+#unauthorizedTitle {
+	font-size: 2.5em;
+}
+/* MOBILE RESPONSIVE TO 6.4 INCH */
+@media only screen and (max-width: 360px) {
+
+/* navbar css in navbar.js */
+
+.navLink {
+	color: white;
+	font-size: 1.2em;
+	font-family: Conthrax;
+	margin-top: 15px;
+}
+.navLink2 {
+	color: white;
+	font-size: 1.2em;
+	font-family: Conthrax;
+}
+.navLinkIcon {
+	color: white;
+	font-size: 2em;
+	font-family: Conthrax;
+}
+.nav-divider {
+	display: none;
+}
+/* footer css in footer.js */
+
+.footerWholeSize {
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+.gitIcon {
+	font-size: 4em;
+	text-align: center;
+}
+/* Main product Page */
+
+.product-img {
+	height: 200px;
+}
+.cardSize {
+	width: 250px;
+	height: 400px;
+	margin: 30px;
+}
+.cardCol {
+	margin: 20px;
+}
+.priceTag {
+	color: black;
+	font-size: 1em;
+}
+/* Aside */
+.logo-section{
+    display: block;
+    margin: auto;
+    margin-left: 20px;
+}
+.title-section{
+    display:none;
+}
+.top-section {
 
 }
-#unauthorizedTitle{
-    font-size:2.5em;
+.middle-section {
+	border-top: none;
+	border-bottom: none;
+    width: 100%;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	margin-top: 3%;
+    margin-bottom: 3%;
+    
+}
+.bottom-section {
+	padding-bottom: 10%;
+}
+.middle-section Button {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	width: 250px;
+	height: 150px;
+	font-family: Conthrax;
+    font-size: 1.2em;
+    margin-left: 40px;
+}
+#productlist-Title {
+	font-family: Conthrax;
+	color: white;
+	font-size: 3em;
+	text-align: center;
+	margin: 2%;
+}
+.logo-img {
+	width: 300px;
+	height: 300px;
+	padding: 30px;
+}
+.title-section p {
+	font-family: Conthrax;
+	color: white;
+	font-size: 3em;
+	padding-top: 2em;
+}
+.filter-section {
+	border-right: 2px solid white;
+	height: 100%;
+	color: white;
+	font-family: Conthrax;
+}
+.filter-section ul {
+	list-style-type: none;
+}
+#searchBar {
+	padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 70px;
+}
+/* TELESCOPES */
+
+#telescopesWrap {
+	width: 100%;
+	padding-bottom: 10%;
+}
+#telescopelist-Title {
+	color: white;
+	font-family: Conthrax;
+	font-size: 2em;
+	text-align: center;
+	padding: 5%;
+}
+/* LOGIN PAGE */
+
+.fulllogin-section {
+	padding-top: 10%;
+	padding-bottom: 10%;
+}
+.loginForm-section {
+	width: 400px;
+	margin-top: 15%;
+}
+.login-label {
+	color: white;
+	font-family: Conthrax;
+}
+.login-label2 {
+	color: black;
+	font-family: Conthrax;
+}
+.login-logo-img {
+	height: 300px;
+	margin-left: 50%;
+	margin-bottom: 5%;
+	transform: translate(-50%);
+}
+.logo-signature p {
+	color: white;
+	font-family: Conthrax;
+	font-size: 1.5em;
+	text-align: center;
+}
+.registerHere-section {
+	margin-top: 20px;
+	color: white;
+	font-family: Conthrax;
+	font-size: 1em;
+}
+/* CART */
+
+#cart-section-whole {
+	padding: 30px;
+	color: white;
+	font-family: Conthrax;
+}
+#cartTitle {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+#checkout-section {
+	margin-left: 20px;
+    border-top: 2px solid orange;
+    border-left: none;
+}
+#checkout-section Button {
+	margin-top: 50px;
+}
+.indivCart {
+    margin-bottom: 50px;
+}
+.cartImg img {
+	width: 150px;
+	height: 150px;
+}
+.cartPrice i {
+	font-size: 1.5em;
+}
 }
