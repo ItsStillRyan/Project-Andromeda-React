@@ -37,7 +37,7 @@ export default function LoginComp() {
             const userid = localStorage.getItem("id")
 
             
-            window.location.assign("/profile/"+userid)
+            window.location.assign("/")
         }
         setValidated(true);
 
